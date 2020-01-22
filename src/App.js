@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import {Route} from 'react-router-dom';
 import './App.css';
-import Person from './Person/Person';
+import Homepage from './pages/homepage/homepage.component';
+import FretboardPage from './pages/fretboard-trainer/fretboard-trainer.component';
+
+const page = () => (
+  <div><h1>fretboard</h1></div>
+)
 
 class App extends Component {
 
@@ -17,29 +22,15 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          {
+          
             <div>
-              <h1>Hello React App</h1>
-              <p>This is a paragraph</p>
-              <button>Switch Name</button>
-              <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>Hobby is Guitar</Person>
-              <Person name={this.state.persons[1].name} age={this.state.persons[1].age} />
-              <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+              
+              {/* <Homepage></Homepage> */}
+              <Route exact path='/' component={Homepage}/>
+              <Route exact path='/fretboard' component={FretboardPage}/>
+ 
             </div>
-
-
-          /* <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a> */}
+          
         </header>
       </div>
     );
