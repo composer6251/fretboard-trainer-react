@@ -1,5 +1,5 @@
 import React from 'react';
-import './fretboard-trainer.styles.css';
+import './fretboard-trainer.styles.scss';
 
 const FretboardPage = () => (
 
