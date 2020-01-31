@@ -1,13 +1,19 @@
 import React from 'react';
-import './fretboard-trainer.styles.scss';
 import TitleOfPage from '../../components/title-of-page/title-of-page.component';
+
+import './fretboard-trainer.styles.scss';
+import '../../global-styles/global.styles.scss';
+
 
 
 const FretboardPage = () => (
 
 <div>
-    <div id='fretboard'>
+    <div className='title-page'>
         <TitleOfPage />
+    </div>
+    <div id='fretboard'>
+        
         <h1>Fretboard</h1>
         
     </div>
