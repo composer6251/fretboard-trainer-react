@@ -9,7 +9,7 @@ import TitleOfPage from '../../components/title-of-page/title-of-page.component'
 const Homepage = () => (
 <div>
     <div className='title-page'>
-        <TitleOfPage />
+        <TitleOfPage title='Home page'/>
     </div>
     <div className='homepage'>
         

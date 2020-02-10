@@ -8,7 +8,7 @@ const LearnTheory = () => (
 
 <div>
     <div className='title-page'>
-        <TitleOfPage />
+        <TitleOfPage title='Learn Theory' image=''/>
     </div>
 
     <div>

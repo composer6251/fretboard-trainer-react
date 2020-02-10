@@ -2,12 +2,13 @@ import React from 'react';
 
 import TestImage from '../../images/logo192.png';
 
-const TitleOfPage = (props) => (
+const TitleOfPage = ( {title, image} ) => (
     <div id='page-title' 
         style=
-           {{backgroundImage: `url(${TestImage})` }}>
+           {{backgroundImage: `url(${image})` }}
+        >
 
-        <h1>Title</h1>
+        <h1>{title}</h1>
 
     </div>
 );
