@@ -8,7 +8,7 @@ const StaffComponent = () =>{
         {/* Higher Ledger Lines */}
 
         {/* staff lines */}
-        <hr class='staffLine'/>
+        <hr class='staffLine top-staff-line'/>
         <hr class='staffLine'/>
         <hr class='staffLine'/>
         <hr class='staffLine'/>

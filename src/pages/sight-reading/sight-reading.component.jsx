@@ -8,7 +8,8 @@ const SightReading = () => (
 
     <div>
         <div className='title-page'>
-            <TitleOfPage title='Sight Reading' image='https://image.shutterstock.com/image-vector/music-note-design-element-doodle-260nw-616470641.jpg'/>
+            <TitleOfPage title='Sight Reading' image='https://image.shutterstock.com/image-vector/music-note-design-element-doodle-260nw-616470641.jpg'
+            />
         </div>
         <div>
             <h1>Sight Reading</h1>

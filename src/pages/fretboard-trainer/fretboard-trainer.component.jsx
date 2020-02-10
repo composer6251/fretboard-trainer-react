@@ -14,8 +14,7 @@ const FretboardPage = () => (
         <TitleOfPage title='Fretboard Trainer'/>
     </div>
     <div id='fretboard'>
-        
-        <h1>Fretboard</h1>
+
         <StaffComponent></StaffComponent>
         
     </div>
