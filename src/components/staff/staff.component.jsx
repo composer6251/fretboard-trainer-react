@@ -6,15 +6,21 @@ const StaffComponent = () =>{
     <div>
 
         {/* Higher Ledger Lines */}
+        <hr class='ledger-line top-ledger-line'/>
+        <hr class='ledger-line'/>
+        <hr class='ledger-line'/>
 
         {/* staff lines */}
-        <hr class='staffLine top-staff-line'/>
-        <hr class='staffLine'/>
-        <hr class='staffLine'/>
-        <hr class='staffLine'/>
-        <hr class='staffLine'/>
+        <hr class='staff-line top-staff-line'/>
+        <hr class='staff-line'/>
+        <hr class='staff-line'/>
+        <hr class='staff-line'/>
+        <hr class='staff-line'/>
 
         {/* Lower ledger Lines */}
+        <hr class='ledger-line ledger-line'/>
+        <hr class='ledger-line'/>
+        <hr class='ledger-line'/>
     </div>
     )
 }
