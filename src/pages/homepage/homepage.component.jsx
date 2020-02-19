@@ -6,7 +6,7 @@ import './homepage.styles.scss';
 
 import TitleOfPage from '../../components/title-of-page/title-of-page.component';
 
-const Homepage = () => (
+const HomepageLink = () => (
 <div>
     <div className='title-page'>
         <TitleOfPage title='Home page'/>
@@ -18,4 +18,4 @@ const Homepage = () => (
 </div>
 );
 
-export default Homepage;
+export default HomepageLink;
