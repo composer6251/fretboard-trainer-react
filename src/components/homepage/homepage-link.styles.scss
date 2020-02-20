@@ -1,7 +1,16 @@
-.homepage-link{
-    border: 2px solid black;
+
+#homepage-component{
+    border:1px solid black;
+    justify-content: center;
+    display: flex;
+
+    //width: min-content;
+    
 }
 
-.homepage-component{
-    border: 2px solid black;
+#sign-out{
+    border: 1px solid black;
+}
+#homepage-link{
+    border: 1px solid black;
 }
