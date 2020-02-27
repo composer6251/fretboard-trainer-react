@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link  } from 'react-router-dom';
 
 import TitleOfPage from '../../components/title-of-page/title-of-page.component';
 import StaffComponent from '../../components/staff/staff.component';
 import HomepageLink from '../../components/homepage/homepage-link.component'
+import Note from '../../components/note/note.component';
 
 import './fretboard-trainer.styles.scss';
 import '../../global-styles/global.styles.scss';
@@ -17,14 +19,18 @@ const FretboardPage = () => (
 
 <div>
     <div>
+
     <HomepageLink id='homepage-link'/>
     </div>
     <div className='title-page'>
+        <Link to='/'>Home</Link>
         <TitleOfPage title='Fretboard Trainer'/>
     </div>
     <div id='fretboard'>
 
-        <StaffComponent></StaffComponent>
+        <StaffComponent>
+            <Note />
+        </StaffComponent>
         
     </div>
 </div>

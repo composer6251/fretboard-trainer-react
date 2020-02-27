@@ -1,18 +1,27 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
+
 import './homepage-link.styles.scss';
 
 
-const Homepage = () => (
+const Homepage = (props) => (
 
-    <div id='homepage-component' onClick='/'
+    <div id='homepage-component' 
+       
     >
         <div>
             <h2 id='sign-out'>Sign Out</h2>
+        </div >
+        <div>
+        <h2 id='homepage-link' 
+            onClick={() =>
+            props.history.push('/')}
+        >
+            Home</h2>
         </div>
-        <h2 id='homepage-link'>Home</h2>
     </div>
     
 
 );
 
-export default Homepage;
+export default withRouter(Homepage);

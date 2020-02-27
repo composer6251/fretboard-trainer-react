@@ -1,12 +1,17 @@
 import React from 'react';
-import TitleOfPage from '../../components/title-of-page/title-of-page.component';
 
 import '../../global-styles/global.styles.scss';
+
+import TitleOfPage from '../../components/title-of-page/title-of-page.component';
+import HomepageLink from '../homepage/homepage.component';
 
 
 const LearnTheory = () => (
 
 <div>
+    <div>
+        {/* <HomepageLink /> */}
+    </div>
     <div className='title-page'>
         <TitleOfPage title='Learn Theory' image=''/>
     </div>

@@ -5,11 +5,18 @@
     display: flex;
 
     //width: min-content;
-    
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 #sign-out{
-    border: 1px solid black;
+        border: 1px solid black;
+        margin-right: 200px;
+
+    &:hover{
+        cursor: pointer;
+    }
 }
 #homepage-link{
     border: 1px solid black;

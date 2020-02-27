@@ -7,7 +7,6 @@ const TitleOfPage = ( {title, image} ) => (
         style=
            {{backgroundImage: `url(${image})` }}
         >
-
         <h1>{title}</h1>
 
     </div>
