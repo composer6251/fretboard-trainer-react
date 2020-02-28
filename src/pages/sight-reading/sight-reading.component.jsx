@@ -1,5 +1,9 @@
 import React from 'react';
+
 import TitleOfPage from '../../components/title-of-page/title-of-page.component';
+import HomepageLink from '../../components/homepage/homepage-link.component';
+
+import StaffImage from '../../images/staff-stretch.png';
 
 import '../../global-styles/global.styles.scss';
 
@@ -7,8 +11,14 @@ import '../../global-styles/global.styles.scss';
 const SightReading = () => (
 
     <div>
-        <div className='title-page'>
-            <TitleOfPage title='Sight Reading' image='https://image.shutterstock.com/image-vector/music-note-design-element-doodle-260nw-616470641.jpg'
+        <div>
+            <HomepageLink id='homepage-link'/>
+        </div>
+        <div 
+        className='title-page' 
+        style={{ backgroundImage: `url(${StaffImage})`}}
+        >
+            <TitleOfPage title='Sight Reading' 
             />
         </div>
         <div>

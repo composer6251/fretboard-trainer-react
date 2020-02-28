@@ -1,18 +1,20 @@
 import React from 'react';
-
-import '../../global-styles/global.styles.scss';
+import { Link } from 'react-router-dom';
 
 import TitleOfPage from '../../components/title-of-page/title-of-page.component';
 import HomepageLink from '../homepage/homepage.component';
+
+import '../../global-styles/global.styles.scss';
 
 
 const LearnTheory = () => (
 
 <div>
     <div>
-        {/* <HomepageLink /> */}
+        {/* <HomepageLink id='homepage-link'/> */}
     </div>
     <div className='title-page'>
+        <Link to='/'>Home</Link>
         <TitleOfPage title='Learn Theory' image=''/>
     </div>
 

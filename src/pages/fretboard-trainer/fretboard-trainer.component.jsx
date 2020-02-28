@@ -11,27 +11,19 @@ import '../../global-styles/global.styles.scss';
 import '../../components/homepage/homepage-link.styles.scss';
 
 
-
-
-
-
 const FretboardPage = () => (
 
 <div>
     <div>
-
-    <HomepageLink id='homepage-link'/>
+        <HomepageLink id='homepage-link'/>
     </div>
     <div className='title-page'>
-        <Link to='/'>Home</Link>
         <TitleOfPage title='Fretboard Trainer'/>
     </div>
     <div id='fretboard'>
-
         <StaffComponent>
             <Note />
         </StaffComponent>
-        
     </div>
 </div>
 );
