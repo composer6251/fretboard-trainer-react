@@ -13,7 +13,6 @@ function App(){
   
   return (
     <div>
-      {/* <HomePage /> */}
       <Switch>
         <Route exact path='/' component={Homepage}/>
         <Route exact path='/fretboardnotetrainer' component={Fretboardpage}/>
