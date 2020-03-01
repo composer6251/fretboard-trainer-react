@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import TitleOfPage from '../../components/title-of-page/title-of-page.component';
-import HomepageLink from '../homepage/homepage.component';
+import HomepageLink from '../../components/homepage/homepage-link.component';
 
 import StaffImage from '../../images/staff-stretch.png';
 
@@ -19,7 +18,7 @@ const LearnTheory = () => (
     className='title-page'
     style={{ backgroundImage: `url(${StaffImage})`}}
     >
-        <TitleOfPage title='Learn Theory' image=''/>
+        <TitleOfPage title='Learn Theory' />
     </div>
 
     <div>

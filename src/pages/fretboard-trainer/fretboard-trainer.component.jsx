@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link  } from 'react-router-dom';
 
 import TitleOfPage from '../../components/title-of-page/title-of-page.component';
 import StaffComponent from '../../components/staff/staff.component';
-import HomepageLink from '../../components/homepage/homepage-link.component'
+import HomepageLink from '../../components/homepage/homepage-link.component';
 import Note from '../../components/note/note.component';
 
 import './fretboard-trainer.styles.scss';
