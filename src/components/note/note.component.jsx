@@ -1,9 +1,20 @@
 import React from 'react';
-import WholeNote from '../../images/whole-note.png';
+import Img from 'react-image';
 
-const Note = () => (
+import WholeNote from '../../images/logo192.png';
 
-    <img src={WholeNote}></img>
-)
+const NoteImage = () => (
 
-export default Note;
+<div>
+    <Img src={WholeNote} />
+</div>
+
+);
+// const Note = () => (
+//     <div style={{ backgroundImage: `url(${WholeNote})`}}
+//             >
+//     </div>
+    
+// )
+
+export default NoteImage;

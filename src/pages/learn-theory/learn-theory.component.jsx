@@ -6,6 +6,7 @@ import HomepageLink from '../../components/homepage/homepage-link.component';
 import StaffImage from '../../images/staff-stretch.png';
 
 import '../../global-styles/global.styles.scss';
+import './learn-theory.styles.scss';
 
 
 const LearnTheory = () => (
@@ -22,7 +23,7 @@ const LearnTheory = () => (
     </div>
 
     <div>
-        <h1>Learn Theory</h1> 
+        <h1 className='learn-theory-header-text'>Learn Theory</h1> 
     </div>
 </div> 
 );
