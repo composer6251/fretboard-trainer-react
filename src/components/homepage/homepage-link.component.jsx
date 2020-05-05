@@ -10,13 +10,18 @@ const Homepage = (props) => (
        
     >
         <div>
-            <h2 id='sign-out'>Sign Out</h2>
+            <h2 id='sign-out'
+                onClick={() =>
+                props.history.push('/')}
+            >
+                Sign Out
+            </h2>
         </div >
         <div>
-        <h2 id='homepage-link' 
-            onClick={() =>
-            props.history.push('/')}
-        >
+            <h2 id='homepage-link' 
+                onClick={() =>
+                props.history.push('/homepage')}
+            >
             Home</h2>
         </div>
     </div>

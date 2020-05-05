@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 
 import './App.css';
 
+import LoginPage from './pages/login/login.component';
 import Homepage from './pages/homepage/homepage.component';
 import Fretboardpage from './pages/fretboard-trainer/fretboard-trainer.component';
 import SightReadingPage from './pages/sight-reading/sight-reading.component';
@@ -14,7 +15,8 @@ function App(){
   return (
     <div>
       <Switch>
-        <Route exact path='/' component={Homepage}/>
+        <Route exact path='/' component={LoginPage}/>
+        <Route exact path='/homepage' component={Homepage}/>
         <Route exact path='/fretboardnotetrainer' component={Fretboardpage}/>
         <Route exact path='/sightreading' component={SightReadingPage}/>
         <Route exact path='/learntheory' component={LearnTheoryPage}/>

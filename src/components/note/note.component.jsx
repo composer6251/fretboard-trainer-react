@@ -1,20 +1,20 @@
-import React from 'react';
-import Img from 'react-image';
+// // import React from 'react';
+// // //import Img from 'react-image';
 
-import WholeNote from '../../images/logo192.png';
+// // import WholeNote from '../../images/logo192.png';
 
-const NoteImage = () => (
+// // const NoteImage = () => (
 
-<div>
-    <Img src={WholeNote} />
-</div>
+// // <div>
+// //     <Img src={WholeNote} />
+// // </div>
 
-);
-// const Note = () => (
-//     <div style={{ backgroundImage: `url(${WholeNote})`}}
-//             >
-//     </div>
+// );
+// // const Note = () => (
+// //     <div style={{ backgroundImage: `url(${WholeNote})`}}
+// //             >
+// //     </div>
     
-// )
+// // )
 
-export default NoteImage;
+// export default NoteImage;
