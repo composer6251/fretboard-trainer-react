@@ -8,7 +8,7 @@ export default class LoginComponent extends Component{
     constructor(){
         super();
         this.state = {
-            username: "test",
+            username: "David",
             password: "test",
             loginFailed: false,
             loginSuccessful: false
@@ -16,6 +16,8 @@ export default class LoginComponent extends Component{
         this.handleChange = this.handleChange.bind(this);
         this.loginOnclick = this.loginOnclick.bind(this);
     }
+    
+    
     //handle login un/pw input changes
     handleChange(event){
         console.log(event.target.value);
@@ -23,20 +25,21 @@ export default class LoginComponent extends Component{
     }
     //validate user info onClick
     loginOnclick(event){
-        if(this.state.username === "test" && this.state.password === "test"){
-            this.setState({loginFailed : false});
-            this.setState({loginSuccessful : true});
+        if(this.state.username === "David" && this.state.password === "test"){
+            this.props.history.push(`/homepage/${this.state.username}`);
         }
         else{
             this.setState({loginFailed : true});
             this.setState({loginSuccessful : false});
         } 
     }
+    
+    
     render(){
         return(
             <div>
-                <ShowFailureMessage loginFailed={this.state.loginFailed} />
-                <ShowSuccessMessage loginSuccessful={this.state.loginSuccessful} />
+                {this.state.loginFailed && <div>Invalid Credentials</div>}
+                {this.state.loginSuccessful && <div>Login Successful!</div>}
                 User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
                 Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
                 <button className="loginButton" onClick={this.loginOnclick}>Login</button>
@@ -44,18 +47,4 @@ export default class LoginComponent extends Component{
             
         )
     }
-}
-
-const ShowFailureMessage = (props) => {
-    if(props.loginFailed){
-        return <div>Invalid Credentials</div>
-    }
-    return null;
-}
-
-const ShowSuccessMessage = (props) => {
-    if(props.loginSuccessful){
-        return <div>Login Successful!</div>
-    }
-    return null;
 }
