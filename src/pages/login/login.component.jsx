@@ -26,7 +26,7 @@ export default class LoginComponent extends Component{
     //validate user info onClick
     loginOnclick(event){
         if(this.state.username === "David" && this.state.password === "test"){
-            this.props.history.push(`/homepage/${this.state.username}`);
+            this.props.history.push(`/homepage`); //removed /${this.state.username}
         }
         else{
             this.setState({loginFailed : true});
@@ -38,6 +38,7 @@ export default class LoginComponent extends Component{
     render(){
         return(
             <div>
+                <h1 className="login-page-h1">Welcome to the Music Training Application!</h1>
                 {this.state.loginFailed && <div>Invalid Credentials</div>}
                 {this.state.loginSuccessful && <div>Login Successful!</div>}
                 User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>

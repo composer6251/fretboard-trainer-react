@@ -21,7 +21,7 @@ const FretboardPage = () => (
     </div>
     <div id='fretboard'>
         <StaffComponent>
-                <Note />
+                <Note /> 
         </StaffComponent>
     </div>
 </div>
