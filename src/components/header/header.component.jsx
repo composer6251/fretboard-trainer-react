@@ -4,12 +4,12 @@ import {withRouter} from 'react-router-dom';
 import './header.styles.scss';
 
 
-const Homepage = (props) => (
+const HeaderComponent = (props) => (
 
-    <div id='homepage-component' 
+    <div className='header-component' 
        
     >
-        <div>
+        <div className='header-btn'>
             <h2 id='sign-out' className="btn"
                 onClick={() =>
                 props.history.push('/')}
@@ -29,4 +29,4 @@ const Homepage = (props) => (
 
 );
 
-export default withRouter(Homepage);
+export default withRouter(HeaderComponent);

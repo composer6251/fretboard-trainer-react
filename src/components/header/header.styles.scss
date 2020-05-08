@@ -1,18 +1,24 @@
 
-#homepage-component{
-    border:1px solid black;
+.header-component{
+    margin-top: 10px;
+   // border:1px solid black;
     justify-content: center;
     display: flex;
-
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
     //width: min-content;
+}
+.header-btn{
     &:hover{
         cursor: pointer;
     }
 }
 
 #sign-out{
-        border: 1px solid black;
-        margin-right: 200px;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+    border: 1px solid black;
+    margin-right: 200px;
 
     &:hover{
         cursor: pointer;
@@ -20,4 +26,7 @@
 }
 #homepage-link{
     border: 1px solid black;
+    &:hover{
+        cursor: pointer;
+    }
 }

@@ -18,8 +18,7 @@ const SightReading = () => (
         className='title-page' 
         style={{ backgroundImage: `url(${StaffImage})`}}
         >
-            <TitleOfPage title='Sight Reading' 
-            />
+            <TitleOfPage/>
         </div>
         <div>
             <h1>Sight Reading</h1>

@@ -12,10 +12,10 @@ const HomepageLink = (props) => {
     return(
 
     <div>
-        <div className='title-page'>
-            <HeaderComponent/>
-            <TitleOfPage title='Home page'/>
-        </div>
+        
+        <HeaderComponent/>
+        <TitleOfPage title='Home page'/>
+        
         <div className="welcome-message">
              Welcome back {/*{this.props.match.params.name} */}
         </div>
