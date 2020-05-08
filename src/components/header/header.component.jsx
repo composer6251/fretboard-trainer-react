@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
-import './homepage-link.styles.scss';
+import './header.styles.scss';
 
 
 const Homepage = (props) => (
@@ -10,7 +10,7 @@ const Homepage = (props) => (
        
     >
         <div>
-            <h2 id='sign-out'
+            <h2 id='sign-out' className="btn"
                 onClick={() =>
                 props.history.push('/')}
             >
@@ -18,7 +18,7 @@ const Homepage = (props) => (
             </h2>
         </div >
         <div>
-            <h2 id='homepage-link' 
+            <h2 id='homepage-link' className="btn"
                 onClick={() =>
                 props.history.push('/homepage')}
             >

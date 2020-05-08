@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TitleOfPage from '../../components/title-of-page/title-of-page.component';
-import HomepageLink from '../../components/homepage/homepage-link.component';
+import HomepageLink from '../../components/header/header.component';
 
 import StaffImage from '../../images/staff-stretch.png';
 

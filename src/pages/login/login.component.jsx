@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 
 import './login.styles.css';
-
-import HomepageLink from '../homepage/homepage.component';
+import '../../global-styles/bootstrap.css';
 
 export default class LoginComponent extends Component{
     constructor(){
@@ -15,6 +14,7 @@ export default class LoginComponent extends Component{
         }
         this.handleChange = this.handleChange.bind(this);
         this.loginOnclick = this.loginOnclick.bind(this);
+        this.guestOnclick = this.guestOnclick.bind(this);
     }
     
     
@@ -33,17 +33,28 @@ export default class LoginComponent extends Component{
             this.setState({loginSuccessful : false});
         } 
     }
+
+    guestOnclick(){
+        this.props.history.push(`/homepage`);
+    }
     
     
     render(){
         return(
             <div>
                 <h1 className="login-page-h1">Welcome to the Music Training Application!</h1>
-                {this.state.loginFailed && <div>Invalid Credentials</div>}
+                {this.state.loginFailed && <div className="alert alert-warning">Invalid Credentials</div>}
                 {this.state.loginSuccessful && <div>Login Successful!</div>}
                 User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
                 Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
-                <button className="loginButton" onClick={this.loginOnclick}>Login</button>
+                <button className="login-button btn" onClick={this.loginOnclick}>Login</button>
+                <div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h2>Continue as Guest without signing in</h2>
+                </div>
+                <button className="login-button btn" onClick={this.guestOnclick}>Guest</button>
             </div>
             
         )
