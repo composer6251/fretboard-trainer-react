@@ -13,16 +13,32 @@ const HeaderComponent = (props) => (
             <h2 id='sign-out' className="btn"
                 onClick={() =>
                 props.history.push('/')}
-            >
-                Sign Out
+            >Sign Out
             </h2>
         </div >
         <div>
             <h2 id='homepage-link' className="btn"
                 onClick={() =>
+                props.history.push('/fretboardnotetrainer')}
+            >Fretboard Trainer</h2>
+        </div>
+        <div>
+            <h2 id='homepage-link' className="btn"
+                onClick={() =>
+                props.history.push('/sightreading')}
+            >Sight Reading</h2>
+        </div>
+        <div>
+            <h2 id='homepage-link' className="btn"
+                onClick={() =>
+                props.history.push('/learntheory')}
+            >Learn Theory</h2>
+        </div>
+        <div>
+            <h2 id='homepage-link' className="btn"
+                onClick={() =>
                 props.history.push('/homepage')}
-            >
-            Home</h2>
+            >Home</h2>
         </div>
     </div>
     
