@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 
 import './header.styles.scss';
 
@@ -11,12 +11,13 @@ const HeaderComponent = (props) => (
     <div className='header-component' 
        
     >
-        <div className='header-btn'>
+        {/* {/* <div className='header-btn'>
+            
             <h2 id='sign-out' className="btn"
-                onClick={() =>
-                //AuthenticationService.removeAuthenticationSessionStorage();
-                props.history.push('/')}
-            >Sign Out
+                //onClick={() =>
+                //AuthenticationService.removeAuthenticationSessionStorage()
+                //props.history.push('/')}
+            ><Link>Sign Out</Link>
             </h2>
         </div >
         <div>
@@ -42,8 +43,8 @@ const HeaderComponent = (props) => (
                 onClick={() =>
                 props.history.push('/homepage')}
             >Home</h2>
-        </div>
-    </div>
+        </div> */}
+    </div> 
     
 
 );

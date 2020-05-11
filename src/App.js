@@ -13,7 +13,7 @@ import ErrorPage from './pages/errorpage/errorpage.component';
 
 //App determines starting page and routing
 function App(){
-  
+
   return (
     <div className="App">
       <Switch>
