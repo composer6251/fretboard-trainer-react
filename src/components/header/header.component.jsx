@@ -3,6 +3,8 @@ import {withRouter} from 'react-router-dom';
 
 import './header.styles.scss';
 
+import AuthenticationService from '../../authentication/AuthenticationService';
+
 
 const HeaderComponent = (props) => (
 
@@ -12,6 +14,7 @@ const HeaderComponent = (props) => (
         <div className='header-btn'>
             <h2 id='sign-out' className="btn"
                 onClick={() =>
+                //AuthenticationService.removeAuthenticationSessionStorage();
                 props.history.push('/')}
             >Sign Out
             </h2>

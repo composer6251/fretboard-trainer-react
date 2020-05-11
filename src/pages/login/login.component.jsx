@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import './login.styles.css';
 import '../../global-styles/bootstrap.css';
 
+import AuthenticationService from '../../authentication/AuthenticationService.js';
+
 export default class LoginComponent extends Component{
     constructor(){
         super();
@@ -24,8 +26,10 @@ export default class LoginComponent extends Component{
         this.setState({[event.target.name] : event.target.value});
     }
     //validate user info onClick
-    loginOnclick(event){
+    loginOnclick(){
         if(this.state.username === "David" && this.state.password === "test"){
+            
+            AuthenticationService.storeAuthenticationSessionStorage(this.state.username);
             this.props.history.push(`/homepage`); //removed /${this.state.username}
         }
         else{
@@ -35,6 +39,7 @@ export default class LoginComponent extends Component{
     }
 
     guestOnclick(){
+        AuthenticationService.removeAuthenticationSessionStorage(this.state.username);
         this.props.history.push(`/homepage`);
     }
     

@@ -1,0 +1,3 @@
+1. Remove Authenticated user from sessionStorage upon Sign Out click
+2. Space out header buttons
+3. Pass current page to HeaderComponent in order to not display that page in the Header. 
