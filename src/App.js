@@ -10,6 +10,7 @@ import Fretboardpage from './pages/fretboard-trainer/fretboard-trainer.component
 import SightReadingPage from './pages/sight-reading/sight-reading.component';
 import LearnTheoryPage from './pages/learn-theory/learn-theory.component';
 import ErrorPage from './pages/errorpage/errorpage.component';
+import AuthenticatedRouter from './authentication/AuthenticatedRouter';
 
 //App determines starting page and routing
 function App(){
@@ -19,10 +20,10 @@ function App(){
       <Switch>
         <Route exact path='/' component={LoginPage}/>
         <Route exact path='/login' component={LoginPage}/>
-        <Route exact path='/homepage' component={Homepage}/>
-        <Route exact path='/fretboardnotetrainer' component={Fretboardpage}/>
-        <Route exact path='/sightreading' component={SightReadingPage}/>
-        <Route exact path='/learntheory' component={LearnTheoryPage}/>
+        <AuthenticatedRouter exact path='/homepage' component={Homepage}/>
+        <AuthenticatedRouter exact path='/fretboardnotetrainer' component={Fretboardpage}/>
+        <AuthenticatedRouter exact path='/sightreading' component={SightReadingPage}/>
+        <AuthenticatedRouter exact path='/learntheory' component={LearnTheoryPage}/>
         <Route component={ErrorPage}/>
       </Switch>
     </div>

@@ -9,10 +9,19 @@ class AuthenticationService {
         sessionStorage.removeItem("authenticated", username);
     }
     
-    isUserLoggedIn(username){
-        let loggedIn = sessionStorage.getItem(username);
-        if(loggedIn === null) return false
+    isUserLoggedIn(){
+        let loggedIn = sessionStorage.getItem("authenticated");
+        
+        if(loggedIn === null) {
+            console.log("loggedIn is False")
+            return false}
+        else{ 
+            console.log("loggedIn is True")
             return true 
+            
+        }
+        
+            
     }
 }
 
