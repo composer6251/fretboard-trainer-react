@@ -7,6 +7,9 @@
     transition: transform 0.25s ease-out;
     //width: min-content;
 }
+.header-btn{
+    
+}
 
 #sign-out{
     transform: translateZ(0);
@@ -19,7 +22,7 @@
 }
 #homepage-link{
     border: 1px solid black;
-    &:hover{
-        cursor: pointer;
-    }
+    // &:hover{
+    //     cursor: pointer;
+    // }
 }

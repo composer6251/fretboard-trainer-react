@@ -1,52 +1,45 @@
-import React from 'react';
-import {withRouter, Link} from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link, withRouter} from 'react-router-dom';
 
 import './header.styles.scss';
 
 import AuthenticationService from '../../authentication/AuthenticationService';
 
 
-const HeaderComponent = (props) => (
+class HeaderComponent extends Component {
+    
+    render(){
+        const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
+        let currentPage = this.props.currentPage;
+        return(
+        <div className='header-component'>
 
-    <div className='header-component' 
-       
-    >
-        {/* {/* <div className='header-btn'>
-            
-            <h2 id='sign-out' className="btn"
-                //onClick={() =>
-                //AuthenticationService.removeAuthenticationSessionStorage()
-                //props.history.push('/')}
-            ><Link>Sign Out</Link>
-            </h2>
-        </div >
-        <div>
-            <h2 id='homepage-link' className="btn"
-                onClick={() =>
-                props.history.push('/fretboardnotetrainer')}
-            >Fretboard Trainer</h2>
+            <div>     
+                <h2 id='homepage-link' className="btn">
+                    <Link onClick={AuthenticationService.removeAuthenticationSessionStorage} to="/">Sign Out</Link></h2> 
+            </div>            
+            <div>
+                <h2 id='homepage-link' className="btn">
+                <Link to="/fretboardnotetrainer">Fretboard Trainer</Link></h2>
+            </div>
+            <div>
+                <h2 id='homepage-link' className="btn">
+                <Link to="/sightreading">Sight Reading</Link></h2>
+            </div>
+            <div>
+                <h2 id='homepage-link' className="btn">
+                <Link to="/learntheory">Learn Theory</Link></h2>
+            </div>
+             {currentPage==="home" &&  
+                <div>
+                    <h2 id='homepage-link' className="btn">
+                    <Link to="/homepage">Home</Link></h2>
+                </div>
+             } 
         </div>
-        <div>
-            <h2 id='homepage-link' className="btn"
-                onClick={() =>
-                props.history.push('/sightreading')}
-            >Sight Reading</h2>
-        </div>
-        <div>
-            <h2 id='homepage-link' className="btn"
-                onClick={() =>
-                props.history.push('/learntheory')}
-            >Learn Theory</h2>
-        </div>
-        <div>
-            <h2 id='homepage-link' className="btn"
-                onClick={() =>
-                props.history.push('/homepage')}
-            >Home</h2>
-        </div> */}
-    </div> 
     
 
-);
-
+        );
+    }
+}
 export default withRouter(HeaderComponent);

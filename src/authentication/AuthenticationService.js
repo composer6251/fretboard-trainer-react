@@ -5,7 +5,8 @@ class AuthenticationService {
     }
 
     removeAuthenticationSessionStorage(username){
-        sessionStorage.removeItem(username);
+        console.log("In Remove Session Storage");
+        sessionStorage.removeItem("authenticated", username);
     }
     
     isUserLoggedIn(username){

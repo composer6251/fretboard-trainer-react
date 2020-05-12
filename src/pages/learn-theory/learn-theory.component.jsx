@@ -19,7 +19,7 @@ const LearnTheory = () => (
     className='title-page'
     style={{ backgroundImage: `url(${StaffImage})`}}
     >
-        <TitleOfPage title='Learn Theory' />
+        <TitleOfPage />
     </div>
 
     <div>

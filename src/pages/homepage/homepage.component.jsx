@@ -6,7 +6,7 @@ import './homepage.styles.scss';
 //import HeaderComponent from '../../components/header/header.component';
 
 //TESTING
-import HeaderComponent from '../../Test/header.component';
+import HeaderComponent from '../../components/header/header.component';
 import Directory from '../../components/directory/directory.component';
 import TitleOfPage from '../../components/title-of-page/title-of-page.component';
 
@@ -15,7 +15,7 @@ const HomepageLink = (props) => {
     return(
 
     <div>  
-        <HeaderComponent/>
+        <HeaderComponent currentPage="home"/>
         <TitleOfPage title='Home Page'/>
         
         <div className="welcome-message">
