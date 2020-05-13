@@ -2,5 +2,14 @@
 2. Space out header buttons
 3. Pass current page to HeaderComponent in order to not display that page in the Header. 
 4. isLoggedIn = true for guests. Must pull from somewhere other than state or authenticate as "Guest"
+
+
+
+
+
+
+
+
+/*************DONE************/
 5. Learn Theory Page buttons have black text. Change to blue --DONE (HeaderComponent was imported from Test folder mistakenly)
 6. Add Authenticated <Route> so URL can't be manually typed in w/o being logged in. --DONE

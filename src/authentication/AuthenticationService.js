@@ -1,16 +1,19 @@
+import { AUTHENTICATED } from '../globals/global-const/constants';
+
 class AuthenticationService {
     
-    storeAuthenticationSessionStorage(username){
-        sessionStorage.setItem("authenticated" , username);
+    storeAuthenticationSessionStorage(authenticated, username){
+
+        sessionStorage.setItem(authenticated, username);
     }
 
-    removeAuthenticationSessionStorage(username){
-        console.log("In Remove Session Storage");
-        sessionStorage.removeItem("authenticated", username);
+    removeAuthenticationSessionStorage(){
+        sessionStorage.removeItem(AUTHENTICATED);
     }
     
     isUserLoggedIn(){
-        let loggedIn = sessionStorage.getItem("authenticated");
+        let loggedIn = sessionStorage.getItem("Authenticated");
+        console.log("Authenticated");
         
         if(loggedIn === null) {
             console.log("loggedIn is False")
@@ -18,10 +21,7 @@ class AuthenticationService {
         else{ 
             console.log("loggedIn is True")
             return true 
-            
         }
-        
-            
     }
 }
 

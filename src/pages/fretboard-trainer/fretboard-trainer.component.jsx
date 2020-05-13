@@ -6,7 +6,7 @@ import HeaderComponent from '../../components/header/header.component';
 import Note from '../../components/note/note.component';
 
 import './fretboard-trainer.styles.scss';
-import '../../global-styles/global.styles.scss';
+import '../../globals/global-styles/bootstrap.css';
 import '../../components/header/header.styles.scss';
 
 

@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 
 import './login.styles.css';
-import '../../global-styles/bootstrap.css';
+import '../../globals/global-styles/bootstrap.css';
 
 import AuthenticationService from '../../authentication/AuthenticationService.js';
+
+import { GUEST_USERNAME, AUTHENTICATED } from '../../globals/global-const/constants';
 
 export default class LoginComponent extends Component{
     constructor(){
@@ -12,13 +14,13 @@ export default class LoginComponent extends Component{
             username: "David",
             password: "test",
             loginFailed: false,
-            loginSuccessful: false
+            loginSuccessful: false,
         }
         this.handleChange = this.handleChange.bind(this);
         this.loginOnclick = this.loginOnclick.bind(this);
         this.guestOnclick = this.guestOnclick.bind(this);
+
     }
-    
     
     //handle login un/pw input changes
     handleChange(event){
@@ -29,7 +31,7 @@ export default class LoginComponent extends Component{
     loginOnclick(){
         if(this.state.username === "David" && this.state.password === "test"){
             
-            AuthenticationService.storeAuthenticationSessionStorage(this.state.username);
+            AuthenticationService.storeAuthenticationSessionStorage(AUTHENTICATED, this.state.username);
             this.props.history.push(`/homepage`); //removed /${this.state.username}
         }
         else{
@@ -37,9 +39,8 @@ export default class LoginComponent extends Component{
             this.setState({loginSuccessful : false});
         } 
     }
-
     guestOnclick(){
-        AuthenticationService.removeAuthenticationSessionStorage(this.state.username);
+        AuthenticationService.storeAuthenticationSessionStorage(AUTHENTICATED, GUEST_USERNAME);
         this.props.history.push(`/homepage`);
     }
     

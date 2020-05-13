@@ -5,6 +5,7 @@ import './header.styles.scss';
 
 import AuthenticationService from '../../authentication/AuthenticationService';
 
+import { AUTHENTICATED } from '../../globals/global-const/constants';
 
 class HeaderComponent extends Component {
     

@@ -2,7 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom'
 
 import './App.css';
-import './global-styles/bootstrap.css';
+import './globals/global-styles/bootstrap.css';
 
 import LoginPage from './pages/login/login.component';
 import Homepage from './pages/homepage/homepage.component';
