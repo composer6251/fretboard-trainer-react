@@ -6,6 +6,7 @@ const ErrorPage = () => {
         <div>
             <HeaderComponent/>
             <h1>Page not found. Error in the URL.</h1>
+
         </div>
     )
 }

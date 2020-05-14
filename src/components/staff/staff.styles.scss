@@ -8,8 +8,13 @@
     margin-top: 50px;
 }
 
+hr{
+    //Line thickness
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+}
 .ledger-line{
     margin-bottom: 34px;
-    margin-left: 575px;
-    margin-right: 575px;
+    margin-left: 906px;
+    width: 75px;   
 }

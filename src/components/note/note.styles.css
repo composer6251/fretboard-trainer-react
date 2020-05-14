@@ -1,0 +1,11 @@
+.note{
+    size: 10px;
+    width: 20px;
+}
+
+.note-image{
+    position: absolute;
+    left: 908px;
+    top: 490px;
+    border: black;
+}
