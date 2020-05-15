@@ -1,13 +1,16 @@
 import React from 'react';
 
-import TitleOfPage from '../../components/title-of-page/title-of-page.component';
-import StaffComponent from '../../components/staff/staff.component';
-import HeaderComponent from '../../components/header/header.component';
-import Note from '../../components/note/note.component';
-
 import './fretboard-trainer.styles.scss';
 import '../../globals/global-styles/bootstrap.css';
 import '../../components/header/header.styles.scss';
+
+import TrebleClefComponent from '../../components/clef/treble-clef.component';
+import FretboardImageComponent from '../../components/fretboard-image/fretboard-image.component';
+
+import TitleOfPage from '../../components/title-of-page/title-of-page.component';
+import StaffComponent from '../../components/staff/staff.component';
+import HeaderComponent from '../../components/header/header.component';
+import Sidebar from '../../components/sidebar/sidebar.component';
 
 
 const FretboardPage = () => (
@@ -21,8 +24,14 @@ const FretboardPage = () => (
     </div>
     <div id='fretboard'>
         <StaffComponent>
-                <Note /> 
+
         </StaffComponent>
+    </div>
+    <div>
+        <FretboardImageComponent/>
+    </div>
+    <div>
+        <Sidebar/>
     </div>
 </div>
 );

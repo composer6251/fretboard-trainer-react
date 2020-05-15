@@ -2,7 +2,7 @@
 2. Space out header buttons
 3. Pass current page to HeaderComponent in order to not display that page in the Header. 
 7. Add sidebar component for page navigations as opposed site navigations
-
+8. finish messaging.service. Need to attach to button for testing. 
 
 
 
