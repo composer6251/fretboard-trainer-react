@@ -31,6 +31,7 @@ class HeaderComponent extends Component {
                 <h2 id='homepage-link' className="btn">
                 <Link to="/learntheory">Learn Theory</Link></h2>
             </div>
+            
              {currentPage==="home" &&  
                 <div>
                     <h2 id='homepage-link' className="btn">
