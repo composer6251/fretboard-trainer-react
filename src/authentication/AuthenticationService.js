@@ -2,9 +2,9 @@ import { AUTHENTICATED } from '../globals/global-const/constants';
 
 class AuthenticationService {
     
-    storeAuthenticationSessionStorage(authenticated, username){
+    storeAuthenticationSessionStorage(username){
 
-        sessionStorage.setItem(authenticated, username);
+        sessionStorage.setItem(AUTHENTICATED, username);
     }
 
     removeAuthenticationSessionStorage(){
