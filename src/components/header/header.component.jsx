@@ -38,7 +38,6 @@ class HeaderComponent extends Component {
                 </div>
              } 
         </div>
-    
 
         );
     }

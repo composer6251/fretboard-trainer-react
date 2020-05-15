@@ -5,7 +5,7 @@ import '../../globals/global-styles/bootstrap.css';
 
 import AuthenticationService from '../../authentication/AuthenticationService.js';
 
-import { GUEST_USERNAME, AUTHENTICATED } from '../../globals/global-const/constants';
+import { GUEST_USERNAME } from '../../globals/global-const/constants';
 
 export default class LoginComponent extends Component{
     constructor(){
@@ -31,7 +31,7 @@ export default class LoginComponent extends Component{
     loginOnclick(){
         if(this.state.username === "David" && this.state.password === "test"){
             
-            AuthenticationService.storeAuthenticationSessionStorage(AUTHENTICATED, this.state.username);
+            AuthenticationService.storeAuthenticationSessionStorage(this.state.username);
             this.props.history.push(`/homepage`); //removed /${this.state.username}
         }
         else{
@@ -40,7 +40,7 @@ export default class LoginComponent extends Component{
         } 
     }
     guestOnclick(){
-        AuthenticationService.storeAuthenticationSessionStorage(AUTHENTICATED, GUEST_USERNAME);
+        AuthenticationService.storeAuthenticationSessionStorage(GUEST_USERNAME);
         this.props.history.push(`/homepage`);
     }
     
