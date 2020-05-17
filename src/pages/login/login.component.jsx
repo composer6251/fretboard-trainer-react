@@ -4,6 +4,7 @@ import './login.styles.css';
 import '../../globals/global-styles/bootstrap.css';
 
 import AuthenticationService from '../../authentication/AuthenticationService.js';
+import MessagingService from '../../api/messaging.service.js';
 
 import { GUEST_USERNAME } from '../../globals/global-const/constants';
 
@@ -15,10 +16,12 @@ export default class LoginComponent extends Component{
             password: "test",
             loginFailed: false,
             loginSuccessful: false,
+            message: ''
         }
         this.handleChange = this.handleChange.bind(this);
         this.loginOnclick = this.loginOnclick.bind(this);
         this.guestOnclick = this.guestOnclick.bind(this);
+        this.messagingServiceOnClick = this.messagingServiceOnClick.bind(this);
 
     }
     
@@ -44,6 +47,15 @@ export default class LoginComponent extends Component{
         this.props.history.push(`/homepage`);
     }
     
+    messagingServiceOnClick(){
+        MessagingService.executedMessagingService()
+        .then(response => this.handleSuccessfulMessagingService(response));
+    }
+
+    handleSuccessfulMessagingService(response){
+        this.setState({message : response.data})
+        console.log("response.data: " + this.state.message);
+    }
     
     render(){
         return(
@@ -61,6 +73,7 @@ export default class LoginComponent extends Component{
                     <h2>Continue as Guest without signing in</h2>
                 </div>
                 <button className="login-button btn" onClick={this.guestOnclick}>Guest</button>
+                <button className="login-button btn" onClick={this.messagingServiceOnClick}>Messaging Service</button>
             </div>
             
         )

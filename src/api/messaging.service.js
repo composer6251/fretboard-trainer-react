@@ -1,10 +1,12 @@
-import axiom from 'axiom';
+import axios from 'axios';
 
 class MessagingService{
 
     executedMessagingService(){
-       // return axiom.
+       
        console.log("Executed Messaging Service");
+       return axios.get('http://localhost:8080/messagingservice');
     }
-
 }
+
+export default new MessagingService();
