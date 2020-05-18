@@ -51,6 +51,10 @@ export default class LoginComponent extends Component{
         MessagingService.executedMessagingService()
         .then(response => this.handleSuccessfulMessagingService(response));
     }
+    messagingServiceBeanOnClick(){
+        MessagingService.executedMessagingServiceBean()
+        .then(response => this.handleSuccessfulMessagingService(response));
+    }
 
     handleSuccessfulMessagingService(response){
         this.setState({message : response.data})
@@ -74,6 +78,7 @@ export default class LoginComponent extends Component{
                 </div>
                 <button className="login-button btn" onClick={this.guestOnclick}>Guest</button>
                 <button className="login-button btn" onClick={this.messagingServiceOnClick}>Messaging Service</button>
+                <button className="login-button btn" onClick={this.messagingServiceBeanOnClick}>Messaging Service Bean</button>
             </div>
             
         )
