@@ -21,6 +21,7 @@ function App(){
         <Route exact path='/' component={LoginPage}/>
         <Route exact path='/login' component={LoginPage}/>
         <AuthenticatedRouter exact path='/homepage' component={Homepage}/>
+        <AuthenticatedRouter exact path='/homepage/:name' component={Homepage}/>
         <AuthenticatedRouter exact path='/fretboardnotetrainer' component={Fretboardpage}/>
         <AuthenticatedRouter exact path='/sightreading' component={SightReadingPage}/>
         <AuthenticatedRouter exact path='/learntheory' component={LearnTheoryPage}/>
