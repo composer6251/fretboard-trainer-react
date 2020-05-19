@@ -8,15 +8,18 @@ import TrebleClefComponent from '../clef/treble-clef.component';
 const StaffComponent = () =>{
     return(
     <div className="staff">
-        <TrebleClefComponent/>
+        
         <Note/>
+        <TrebleClefComponent/>
         <div>
+            
             {/* Higher Ledger Lines */}
             <hr className='ledger-line top-ledger-line'/>
             <hr className='ledger-line'/>
             <hr className='ledger-line'/>
 
             {/* staff lines */}
+            
             <hr className='staff-line top-staff-line'/>
             <hr className='staff-line'/>
             <hr className='staff-line'/>

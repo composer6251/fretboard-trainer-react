@@ -1,6 +1,7 @@
 .treble-clef{
     position: absolute;
     left: 10px;
-    bottom: 459px;
+    top: 193px;
+    /* bottom: 459px; */
     border: 1px solid black;
 }
