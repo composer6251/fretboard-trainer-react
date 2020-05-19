@@ -22,6 +22,7 @@ export default class LoginComponent extends Component{
         this.loginOnclick = this.loginOnclick.bind(this);
         this.guestOnclick = this.guestOnclick.bind(this);
         this.messagingServiceOnClick = this.messagingServiceOnClick.bind(this);
+        this.messagingServiceBeanOnClick = this.messagingServiceBeanOnClick.bind(this);
 
     }
     
@@ -48,14 +49,13 @@ export default class LoginComponent extends Component{
     }
     
     messagingServiceOnClick(){
-        MessagingService.executedMessagingServiceBean()
+        MessagingService.executedMessagingService()
         .then(response => this.handleSuccessfulMessagingService(response));
     }
     messagingServiceBeanOnClick(){
-         MessagingService.executedMessagingServiceBean()
+          MessagingService.executedMessagingServiceBean()
          .then(response => this.handleSuccessfulMessagingService(response));
     }
-
     handleSuccessfulMessagingService(response){
         this.setState({message: response.data.message})
     }
