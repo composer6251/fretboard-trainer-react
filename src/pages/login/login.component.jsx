@@ -28,7 +28,7 @@ export default class LoginComponent extends Component{
     
     //handle login un/pw input changes
     handleChange(event){
-        console.log(event.target.value);
+        console.log(event.target.name + "=" + event.target.value);
         this.setState({[event.target.name] : event.target.value});
     }
     //validate user info onClick
@@ -36,7 +36,7 @@ export default class LoginComponent extends Component{
         if(this.state.username === "David" && this.state.password === "test"){
             
             AuthenticationService.storeAuthenticationSessionStorage(this.state.username);
-            this.props.history.push(`/homepage`); //removed /${this.state.username}
+            this.props.history.push(`/homepage/${this.state.username}`); //removed /${this.state.username}
         }
         else{
             this.setState({loginFailed : true});
