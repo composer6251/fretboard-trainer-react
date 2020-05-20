@@ -16,24 +16,23 @@ import Sidebar from '../../components/sidebar/sidebar.component';
 const FretboardPage = () => {
     return(
         <div id="fixed-page">
-            <div className="sidebar">
+            <div align="left" className="sidebar">
                 <Sidebar className="sidebar"/>
             </div>
-            <nav id="sidebar">Sidebar</nav>
             <div>
                 <HeaderComponent id='homepage-link'/>
             </div>
             <div className='title-page'>
                 <TitleOfPage title='Fretboard Trainer'/>
             </div>
-            <div>
-                <StaffComponent/>
+            <div align="right" >
+                <StaffComponent />
             </div>
-            <div>
+            <div align="right">
                 <FretboardImageComponent/>
             </div>
         </div>
-        )
+    )
 };
 
 export default FretboardPage;
