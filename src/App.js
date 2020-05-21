@@ -11,6 +11,7 @@ import SightReadingPage from './pages/sight-reading/sight-reading.component';
 import LearnTheoryPage from './pages/learn-theory/learn-theory.component';
 import ErrorPage from './pages/errorpage/errorpage.component';
 import AuthenticatedRouter from './authentication/AuthenticatedRouter';
+import TestClassForDBCalls from './pages/testpage/testpage.component';
 
 //App determines starting page and routing
 function App(){
@@ -20,6 +21,7 @@ function App(){
       <Switch>
         <Route exact path='/' component={LoginPage}/>
         <Route exact path='/login' component={LoginPage}/>
+        <Route exact path='/testpage' component={TestClassForDBCalls}/>
         <AuthenticatedRouter exact path='/homepage' component={Homepage}/>
         <AuthenticatedRouter exact path='/homepage/:name' component={Homepage}/>
         <AuthenticatedRouter exact path='/fretboardnotetrainer' component={Fretboardpage}/>
