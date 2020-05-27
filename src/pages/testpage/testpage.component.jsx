@@ -6,8 +6,9 @@ import TestComponent from './test.component.jsx';
 class TestClassForDBCalls extends Component{
     render(){
         return(
-            <div>Test
-            <TestComponent /></div>
+            <div>
+            <TestComponent />
+            </div>
         )
     }
 

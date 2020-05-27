@@ -7,7 +7,7 @@ class TestComponent extends Component {
     constructor(props){
         super(props);
 
-        this.getLoggedInUser = this.getLoggedInUser.bind(this);
+        this.getUsers = this.getUsers.bind(this);
         this.handleErrorResponse = this.handleErrorResponse.bind(this);
         this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this);
 
@@ -20,46 +20,13 @@ class TestComponent extends Component {
 
             errorMessage : ''
 
-         }
+         } 
     }
-    
-    render(){
-        return(
-            
-                <div>
-                    <button>Get users</button>
-                    <button onClick={this.getLoggedInUser}>Get logged in User</button>
-                    <button>Update User</button>
-                    <button>Delete User</button>
-                    <br/>
-                     <div><table className="table">
-                            <thead>
-                                <tr>
-                                    <th>Username</th>
-                                    <th>Password</th>
-                                    <th>Level</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    this.state.user.map(
-                                        user =>
-                                        <tr key={user.username}>
-                                            <td>{user.username}</td>
-                                            <td>{user.password}</td>
-                                            <td>{user.level}</td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
-                         </table>
-                         </div>
-                    
-                </div>
-        )
-    }
+    componentDidMount(){
+        this.getUsers();
 
-    getLoggedInUser(){
+    }
+    getUsers(){
         let user = AuthenticationService.getLoggedInUser();
 
          DBService.getUser(user)
@@ -71,14 +38,52 @@ class TestComponent extends Component {
     }
     handleSuccessfulResponse(response){
         //console.log(response);
-        // console.log(response.data);
-
-
+         console.log(response.data);
         this.setState({user : response.data})
-         console.log(this.state.user.username);
     }
     handleErrorResponse(error){
         //this.setState({errorMessage : error.response.data})
     }
+    render(){
+        return(
+            
+                <div>
+                    <button>Get users</button>
+                    <button onClick={this.getLoggedInUser}>Get logged in User</button>
+                    <button>Update User</button>
+                    
+                    <br/>
+                     <div><table className="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>Level</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.state.user.map(
+                                        user =>
+                                        <tr key={user.id}>
+                                            <td>{user.id}</td>
+                                            <td>{user.username}</td>
+                                            <td>{user.password}</td>
+                                            <td>{user.currentLevel}</td>
+                                            <td><button className="btn btn-warning">Delete User</button></td>
+                                        </tr>
+                                    )
+                                }
+                            </tbody>
+                         </table>
+                         </div>
+                    
+                </div>
+        )
+    }
+
+
 }
 export default TestComponent;
