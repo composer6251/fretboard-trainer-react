@@ -11,10 +11,6 @@ class TestClassForDBCalls extends Component{
             </div>
         )
     }
-
-    testMothod(){
-        console.log("test")
-    }
 }
 
 export default TestClassForDBCalls;

@@ -37,15 +37,19 @@ class TestComponent extends Component {
             )
         .catch(error => this.handleErrorResponse(error))
     }
-    deleteUser(id, username){
+    deleteUser(username, id){
         console.log("in deleteUser")
-        DBService.deleteUser(id, username)
-        .then(response => console.log(response));
+        DBService.deleteUser(username, id)
+        .then(response => {
+            console.log(response)
+            this.getUsers();
+            }
+        )
 
     }
     handleSuccessfulResponse(response){
         //console.log(response);
-         console.log(response.data);
+         
         this.setState({user : response.data})
     }
     handleErrorResponse(error){
@@ -56,7 +60,7 @@ class TestComponent extends Component {
             
                 <div>
                     <button>Get users</button>
-                    <button onClick={this.getLoggedInUser}>Get logged in User</button>
+                    <button>Get logged in User</button>
                     <button>Update User</button>
                     
                     <br/>
@@ -79,7 +83,7 @@ class TestComponent extends Component {
                                             <td>{user.username}</td>
                                             <td>{user.password}</td>
                                             <td>{user.currentLevel}</td>
-                                            <td><button className="btn btn-warning" onClick={() => this.deleteUser(user.id, user.username)}>Delete User</button></td>
+                                            <td><button className="btn btn-warning" onClick={() => this.deleteUser(user.username, user.id)}>Delete User</button></td>
                                         </tr>
                                     )
                                 }
