@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import DBService from '../../api/db.service.js';
 import AuthenticationService from '../../authentication/AuthenticationService.js';
 
+
 class TestComponent extends Component {
     constructor(props){
         super(props);
@@ -35,6 +36,12 @@ class TestComponent extends Component {
             this.handleSuccessfulResponse(response)
             )
         .catch(error => this.handleErrorResponse(error))
+    }
+    deleteUser(id, username){
+        console.log("in deleteUser")
+        DBService.deleteUser(id, username)
+        .then(response => console.log(response));
+
     }
     handleSuccessfulResponse(response){
         //console.log(response);
@@ -72,7 +79,7 @@ class TestComponent extends Component {
                                             <td>{user.username}</td>
                                             <td>{user.password}</td>
                                             <td>{user.currentLevel}</td>
-                                            <td><button className="btn btn-warning">Delete User</button></td>
+                                            <td><button className="btn btn-warning" onClick={() => this.deleteUser(user.id, user.username)}>Delete User</button></td>
                                         </tr>
                                     )
                                 }
