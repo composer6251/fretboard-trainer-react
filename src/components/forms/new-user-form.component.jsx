@@ -10,9 +10,13 @@ class NewUserFormComponent extends Component{
             password : ''
         }
         this.submitButtonOnClick = this.submitButtonOnClick.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
     submitButtonOnClick(){
         console.log("Submit: " + this.state.email);
+    }
+    onSubmit(values){
+        console.log(values)
     }
 
     render(){
@@ -21,6 +25,7 @@ class NewUserFormComponent extends Component{
                 <h2>Create An Account</h2>
                 <Formik 
                     initialValues={{email: '', password: ''}}
+                    onSubmit={this.onSubmit}
                     validate={values => {
                         const errors = {};
                         if(!values.email){
@@ -32,21 +37,23 @@ class NewUserFormComponent extends Component{
                         }
                         return errors;
                     }}
-                    onSubmit={(values, {setSubmitting}) => {
-                        setTimeout(() => {
-                            //alert(JSON.stringify(values, null, 2));
-                            setSubmitting(false);
-                        }, 400);
-                    }}
+                    
+                    // onSubmit={(values, {setSubmitting}) => {
+                    //     setTimeout(() => {
+                    //         console.log("values: " + values)
+                    //         //alert(JSON.stringify(values, null, 2));
+                    //         setSubmitting(false);
+                    //     }, 400);
+                    // }}
                 >
                     {
                         ({ isSubmitting }) => (
                             <Form>
                                 <label>Email</label>
-                                <Field type="email" name="email"/>
+                                <Field type="text" name="email" />
                                 <label>Password</label>
-                                <Field type="password" name="password"/>
-                                <button className="btn-success" type="submit" disabled={isSubmitting} onClick={() => this.submitButtonOnClick(this.values.email)}>
+                                <Field type="password" name="password"  />
+                                <button className="btn-success" type="submit" disabled={isSubmitting}>
                                     Submit</button>
                             </Form>
                         )}
