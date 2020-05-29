@@ -1,31 +1,29 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Component } from 'react';
+import UsersService from '../../api/users.service';
 
 class NewUserFormComponent extends Component{
     constructor(props){
         super(props);
         this.state = {
-            email : '',
-            password : ''
+            email : 'dfennell@weorij.com',
+            password : 'test'
         }
-        this.submitButtonOnClick = this.submitButtonOnClick.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
-    submitButtonOnClick(){
-        console.log("Submit: " + this.state.email);
-    }
     onSubmit(values){
-        console.log(values)
+        UsersService.addUser(values);
     }
 
     render(){
+        let {email, password} = this.state;
         return(
             <div>
                 <h2>Create An Account</h2>
                 <Formik 
-                    initialValues={{email: '', password: ''}}
-                    onSubmit={this.onSubmit}
+                    initialValues={{email, password}}
+                    
                     validate={values => {
                         const errors = {};
                         if(!values.email){
@@ -37,7 +35,7 @@ class NewUserFormComponent extends Component{
                         }
                         return errors;
                     }}
-                    
+                    onSubmit={this.onSubmit}
                     // onSubmit={(values, {setSubmitting}) => {
                     //     setTimeout(() => {
                     //         console.log("values: " + values)
@@ -47,16 +45,17 @@ class NewUserFormComponent extends Component{
                     // }}
                 >
                     {
-                        ({ isSubmitting }) => (
+                         ({ isSubmitting }) => (
                             <Form>
                                 <label>Email</label>
-                                <Field type="text" name="email" />
+                                <Field type="email" name="email" />
                                 <label>Password</label>
                                 <Field type="password" name="password"  />
-                                <button className="btn-success" type="submit" disabled={isSubmitting}>
+                                <button className="btn-success" type="submit">
                                     Submit</button>
                             </Form>
-                        )}
+                        )
+                    }
                 </Formik>
             </div>
         )

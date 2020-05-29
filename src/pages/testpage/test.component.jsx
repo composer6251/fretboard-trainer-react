@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import DBService from '../../api/db.service.js';
+import UserService from '../../api/users.service';
 import AuthenticationService from '../../authentication/AuthenticationService.js';
 
 
@@ -14,23 +14,17 @@ class TestComponent extends Component {
 
         this.state = {
             
-            user  : [
-
-
-            ],
-
+            user  : [],
             errorMessage : ''
-
          } 
     }
     componentDidMount(){
         this.getUsers();
-
     }
     getUsers(){
         let user = AuthenticationService.getLoggedInUser();
 
-         DBService.getUser(user)
+         UserService.getUser(user)
          .then(
             response => 
             this.handleSuccessfulResponse(response)
@@ -39,7 +33,7 @@ class TestComponent extends Component {
     }
     deleteUser(username, id){
         console.log("in deleteUser")
-        DBService.deleteUser(username, id)
+        UserService.deleteUser(username, id)
         .then(response => {
             console.log(response)
             this.getUsers();
@@ -90,7 +84,6 @@ class TestComponent extends Component {
                             </tbody>
                          </table>
                          </div>
-                    
                 </div>
         )
     }

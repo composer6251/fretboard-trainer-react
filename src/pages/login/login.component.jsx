@@ -24,7 +24,6 @@ export default class LoginComponent extends Component{
         this.guestOnclick = this.guestOnclick.bind(this);
         this.messagingServiceOnClick = this.messagingServiceOnClick.bind(this);
         this.messagingServiceBeanOnClick = this.messagingServiceBeanOnClick.bind(this);
-
     }
     
     //handle login un/pw input changes
