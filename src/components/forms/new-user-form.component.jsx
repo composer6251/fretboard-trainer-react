@@ -7,13 +7,26 @@ class NewUserFormComponent extends Component{
     constructor(props){
         super(props);
         this.state = {
-            email : 'dfennell@weorij.com',
+            email : 'dfennell31@gmail.com',
             password : 'test'
         }
         this.onSubmit = this.onSubmit.bind(this);
+        this.onSubmitValidation = this.onSubmitValidation.bind(this);
     }
     onSubmit(values){
         UsersService.addUser(values);
+    }
+    onSubmitValidation(values){
+        const errors = {};
+        if(!values.email){
+            errors.email = 'Required';
+        }else if(
+            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ){
+            errors.email = 'Invalid email address';
+        }
+        console.log(errors);
+        return errors;
     }
 
     render(){
@@ -23,26 +36,9 @@ class NewUserFormComponent extends Component{
                 <h2>Create An Account</h2>
                 <Formik 
                     initialValues={{email, password}}
-                    
-                    validate={values => {
-                        const errors = {};
-                        if(!values.email){
-                            errors.email = 'Required';
-                        }else if(
-                            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                        ){
-                            errors.email = 'Invalid email address';
-                        }
-                        return errors;
-                    }}
+                    handleChange={false}
+                    validate={this.onSubmitValidation}
                     onSubmit={this.onSubmit}
-                    // onSubmit={(values, {setSubmitting}) => {
-                    //     setTimeout(() => {
-                    //         console.log("values: " + values)
-                    //         //alert(JSON.stringify(values, null, 2));
-                    //         setSubmitting(false);
-                    //     }, 400);
-                    // }}
                 >
                     {
                          ({ isSubmitting }) => (
