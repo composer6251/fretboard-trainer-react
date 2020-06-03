@@ -7,13 +7,14 @@ class NewUserFormComponent extends Component{
     constructor(props){
         super(props);
         this.state = {
-            email : 'dfennell31@gmail.com',
-            password : 'test'
+            email : '',
+            password : ''
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.onSubmitValidation = this.onSubmitValidation.bind(this);
     }
     onSubmit(values){
+        console.log(values)
         UsersService.addUser(values);
     }
     onSubmitValidation(values){

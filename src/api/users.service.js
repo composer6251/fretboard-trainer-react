@@ -9,10 +9,12 @@ class UsersService{
         //console.log(axios.get(`http://localhost:8080/users/${username}/userinfo/${id}`))
         return axios.delete(`http://localhost:8080/users/${username}/userinfo/${id}`);
     }
-    addUser(email, password){
-        console.log(email, password);
-        return axios.put(`http://localhost:8080/users/${email}/addUser/${password}`)
+    addUser(user){
+        return axios.post(`http://localhost:8080/users/addUser`, user)
     }
+    // updateUser(email, password){
+    //     return axios.put(`http://localhost:8080/users/${email}/addUser/${password}`)
+    // }
 }
 
 export default new UsersService();
