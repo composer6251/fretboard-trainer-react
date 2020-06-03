@@ -11,7 +11,10 @@ class UsersService{
     }
     addUser(email, password){
         console.log(email, password);
-        return axios.put(`http://localhost:8080/users/${email}/addUser/${password}`)
+        return axios.post(`http://localhost:8080/users/${email}/addUser/${password}`)
+    }
+    getUsers(){
+        return axios.get(`http://localhost:8080/users`)
     }
 }
 
