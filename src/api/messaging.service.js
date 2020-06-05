@@ -7,9 +7,22 @@ class MessagingService{
        return axios.get('http://localhost:8080/messagingservice');
     }
     executedMessagingServiceBean(){
+         let username = "David";
+         let password = "Test";
 
-        return axios.get('http://localhost:8080/messagingservicebean');
+         let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password);
+         
+         return axios.get('http://localhost:8080/messagingservicebean'
+         ,
+         {
+            headers : {
+               authorization : basicAuthHeader
+            }
+         }
+         );
      }
+
+
    //   executedMessagingServiceBeanPathVariable(){
        
    //    console.log("Executed Messaging Service");
