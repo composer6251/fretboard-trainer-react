@@ -16,7 +16,7 @@ class MessagingService{
          ,
          {
             headers : {
-               authorization : basicAuthHeader
+               'Authorization' : basicAuthHeader
             }
          }
          );

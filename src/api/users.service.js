@@ -9,7 +9,21 @@ class UsersService{
         return axios.delete(`http://localhost:8080/users/${username}/userinfo/${id}`);
     }
     addUser(user){
-        return axios.post(`http://localhost:8080/users/addUser`, user)
+
+        let username = "David";
+        let password = "Test";
+
+        let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password);
+        
+        return axios.get(`http://localhost:8080/users/addUser`, user
+        ,
+        {
+           headers : {
+              authorization : basicAuthHeader
+           }
+        }
+        );
+       // return axios.post(`http://localhost:8080/users/addUser`, user)
     }
 
     getUsers(){
