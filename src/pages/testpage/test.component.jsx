@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 
-import UserService from '../../api/users.service';
-import AuthenticationService from '../../authentication/AuthenticationService.js';
+import UserServiceInterface from '../../api-interfaces/userServiceInterface';
+
 
 
 class TestComponent extends Component {
     constructor(props){
         super(props);
 
-        this.getUser = this.getUser.bind(this);
-        this.handleErrorResponse = this.handleErrorResponse.bind(this);
-        this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this);
+        // this.getUser = this.getUser.bind(this);
+        // this.handleErrorResponse = this.handleErrorResponse.bind(this);
+        // this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this);
 
         this.state = {
             
@@ -20,53 +20,56 @@ class TestComponent extends Component {
     }
     componentDidMount(){
         //this.getUser();
-        this.getUsers();
+        let userToSet = UserServiceInterface.getUsers();
+        console.log("userToSet" + userToSet);
+        this.setState({ user :  userToSet});
+        console.log(this.state);
     }
-    getUsers(){
-        UserService.getUsers()
-        .then(
-            response => 
-            this.handleSuccessfulResponse(response)
-            //console.log('response :>> ', response)
-            )
-            .catch(error => this.handleErrorResponse(error));
-    }
+    // getUsers(){
+    //     UserService.getUsers()
+    //     .then(
+    //         response => 
+    //         this.handleSuccessfulResponse(response)
+    //         //console.log('response :>> ', response)
+    //         )
+    //         .catch(error => this.handleErrorResponse(error));
+    // }
 
-    getUser(){
-        let user = AuthenticationService.getLoggedInUser();
+    // getUser(){
+    //     let user = AuthenticationService.getLoggedInUser();
 
-         UserService.getUser(user)
-         .then(
-            response => 
-            this.handleSuccessfulResponse(response)
-            )
-        .catch(error => this.handleErrorResponse(error))
-    }
-    deleteUser(username, id){
+    //      UserService.getUser(user)
+    //      .then(
+    //         response => 
+    //         this.handleSuccessfulResponse(response)
+    //         )
+    //     .catch(error => this.handleErrorResponse(error))
+    // }
+    // deleteUser(username, id){
 
-        UserService.deleteUser(username, id)
-        .then(response => {
-            console.log(response)
-            this.getUser();
-            }
-        )
+    //     UserService.deleteUser(username, id)
+    //     .then(response => {
+    //         console.log(response)
+    //         this.getUser();
+    //         }
+    //     )
 
-    }
-    handleSuccessfulResponse(response){
+    // }
+    // handleSuccessfulResponse(response){
 
-        this.setState({user : response.data})
-    }
-    handleErrorResponse(error){
-        let errorMessage = '';
+    //     this.setState({user : response.data})
+    // }
+    // handleErrorResponse(error){
+    //     let errorMessage = '';
 
-        if(error.message){
-            errorMessage += error.message;
-        }
-        if(error.response && error.response.data){
-            errorMessage += error.response.data.message;
-        }
-        this.setState({message: errorMessage})
-    }
+    //     if(error.message){
+    //         errorMessage += error.message;
+    //     }
+    //     if(error.response && error.response.data){
+    //         errorMessage += error.response.data.message;
+    //     }
+    //     this.setState({message: errorMessage})
+    // }
     render(){
         return(
             
