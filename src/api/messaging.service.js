@@ -8,7 +8,7 @@ class MessagingService{
     }
     executedMessagingServiceBean(){
          let username = "David";
-         let password = "Test";
+         let password = "test";
 
          let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password);
          

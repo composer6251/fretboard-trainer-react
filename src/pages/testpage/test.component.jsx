@@ -8,7 +8,7 @@ class TestComponent extends Component {
     constructor(props){
         super(props);
 
-        this.getUsers = this.getUsers.bind(this);
+        this.getUser = this.getUser.bind(this);
         this.handleErrorResponse = this.handleErrorResponse.bind(this);
         this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this);
 
@@ -19,9 +19,20 @@ class TestComponent extends Component {
          } 
     }
     componentDidMount(){
+        //this.getUser();
         this.getUsers();
     }
     getUsers(){
+        UserService.getUsers()
+        .then(
+            response => 
+            this.handleSuccessfulResponse(response)
+            //console.log('response :>> ', response)
+            )
+            .catch(error => this.handleErrorResponse(error));
+    }
+
+    getUser(){
         let user = AuthenticationService.getLoggedInUser();
 
          UserService.getUser(user)
@@ -32,22 +43,29 @@ class TestComponent extends Component {
         .catch(error => this.handleErrorResponse(error))
     }
     deleteUser(username, id){
-        console.log("in deleteUser")
+
         UserService.deleteUser(username, id)
         .then(response => {
             console.log(response)
-            this.getUsers();
+            this.getUser();
             }
         )
 
     }
     handleSuccessfulResponse(response){
-        //console.log(response);
-         
+
         this.setState({user : response.data})
     }
     handleErrorResponse(error){
-        //this.setState({errorMessage : error.response.data})
+        let errorMessage = '';
+
+        if(error.message){
+            errorMessage += error.message;
+        }
+        if(error.response && error.response.data){
+            errorMessage += error.response.data.message;
+        }
+        this.setState({message: errorMessage})
     }
     render(){
         return(
@@ -63,6 +81,7 @@ class TestComponent extends Component {
                                 <tr>
                                     <th>Id</th>
                                     <th>Username</th>
+                                    <th>Email</th>
                                     <th>Password</th>
                                     <th>Level</th>
                                     
@@ -74,7 +93,8 @@ class TestComponent extends Component {
                                         user =>
                                         <tr key={user.id}>
                                             <td>{user.id}</td>
-                                            <td>{user.username}</td>
+                                            <td>{user.name}</td>
+                                            <td>{user.email}</td>
                                             <td>{user.password}</td>
                                             <td>{user.currentLevel}</td>
                                             <td><button className="btn btn-warning" onClick={() => this.deleteUser(user.username, user.id)}>Delete User</button></td>

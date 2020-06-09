@@ -3,31 +3,70 @@ import axios from 'axios'
 class UsersService{
 
     getUser(username){
-        return axios.get(`http://localhost:8080/users/${username}/userinfo`);
+        let password = "test";
+
+        let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password);
+        
+        return axios.get(`http://localhost:8080/users/${username}/userinfo`
+        ,
+        {
+            headers : {
+                'Authorization' : basicAuthHeader
+            }
+        }
+        );
     }
     deleteUser(username, id){
-        return axios.delete(`http://localhost:8080/users/${username}/userinfo/${id}`);
+
+        let password = "test";
+
+        let basicAuthHeader = "Basic " + window.btoa(username + ":" + password);
+
+        return axios.delete(`http://localhost:8080/users/${username}/userinfo/${id}`
+        ,
+        {
+            headers : {
+                'Authorization' : basicAuthHeader
+            }
+        }
+        );
     }
     addUser(user){
 
         let username = "David";
-        let password = "Test";
+        let password = "test";
 
         let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password);
-        
+
         return axios.get(`http://localhost:8080/users/addUser`, user
         ,
         {
            headers : {
-              authorization : basicAuthHeader
+              'Authorization' : basicAuthHeader
            }
         }
         );
+
+
        // return axios.post(`http://localhost:8080/users/addUser`, user)
     }
 
     getUsers(){
-        return axios.get(`http://localhost:8080/users`)
+
+        let username = "David";
+        let password = "test";
+
+        let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password);
+
+        return axios.get(`http://localhost:8080/users`
+        ,
+        {
+           headers : {
+              'Authorization' : basicAuthHeader
+           }
+        }
+        );
+        
     }
     // updateUser(email, password){
     //     return axios.put(`http://localhost:8080/users/${email}/addUser/${password}`)
