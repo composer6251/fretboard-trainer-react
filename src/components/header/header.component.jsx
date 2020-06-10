@@ -5,12 +5,9 @@ import './header.styles.scss';
 
 import AuthenticationService from '../../authentication/AuthenticationService';
 
-import { AUTHENTICATED } from '../../globals/global-const/constants';
-
 class HeaderComponent extends Component {
     
     render(){
-        const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
         let currentPage = this.props.currentPage;
         return(
         <div className='header-component'>

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-import UserServiceInterface from '../../api-interfaces/userServiceInterface.js';
 import UserService from '../../api/users.service';
 import AuthenticationService from '../../authentication/AuthenticationService.js'
 
@@ -21,21 +20,17 @@ class TestComponent extends Component {
          } 
     }
     componentDidMount(){
-        // let users = UserServiceInterface.getUsers();
-        // console.log('users :>> ', users);
-        let users = UserServiceInterface.getUsersAsync();
-        console.log('users :>> ', users);
-        users.then(
-            this.setState({user : users})
-            
-        )
-        console.log('user :>> ', this.state.user);
-    }
+        this.getUsers();
         
-
-
-        //this.getUsers();
-    
+        // console.log('users :>> ', users);
+        // let users = UserServiceInterface.getUsersAsync();
+        // console.log('users :>> ', users);
+        // users.then(
+        //     this.setState({user : users})
+            
+        // )
+        // console.log('user :>> ', this.state.user);
+    }
     
     getUsers(){
         UserService.getUsers()
@@ -107,7 +102,7 @@ class TestComponent extends Component {
                             </thead>
                             <tbody>
                                 {
-                                    this.state.users.map(
+                                    this.state.user.map(
                                         user =>
                                         <tr key={user.id}>
                                             <td>{user.id}</td>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import MenuItem from '../menu-item/menu-item.component';
-import TitleOfPage from '../title-of-page/title-of-page.component';
 
 import './directory.styles.scss';
 

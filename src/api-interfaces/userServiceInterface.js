@@ -1,5 +1,4 @@
-import React from 'react';
-import { Component } from 'react';
+
 
 import UserService from '../api/users.service.js';
 import AuthenticationService from '../authentication/AuthenticationService.js';
@@ -20,21 +19,25 @@ class UserServiceInterface{
     //     this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this);
     // }
 
+    // getUsersPromise = new Promise((resolve, reject) =>{
+    //     UserService.getUsers();
+    // });
+    
+    // getUsersPromise.then(response => return response.data);
 
     async getUsersAsync(){
-        let user;
+        //let user;
         
         await UserService.getUsers()
         .then(
             response => {
                 console.log('response.data :>> ', response.data);
-                user = response.data;
-                console.log('user :>> ', user);
+                return response.data
             }
         )
         
-        return user;
-}
+        //return user;
+    }
 
      getUsers(){
        UserService.getUsers()

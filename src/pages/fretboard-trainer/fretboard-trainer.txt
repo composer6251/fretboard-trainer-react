@@ -1,0 +1,55 @@
+This is to plan/document the functionality behind the fretboard training page
+
+User selects:
+    1. Key (C-B)
+    2. Scale (Major, minor...etc)
+    3. Range (Num of Octaves)
+
+Upon pressing Begin Button:
+    1. Generate Random Note
+    2. Check if note should have an Accidental
+    3. Display Note
+    4. Display Accidental
+
+Upon clicking (guessing) a note on the fretboard:
+    1. Compare the note clicked with the note displayed
+    2. If it's correct 
+        generate new random note
+        update score
+    3. Else
+        update score?
+        generate error message
+
+Button to display notes in fretboard
+
+Button to highlight notes in Key
+
+
+Dropdowns (Component) Passes Props => CONSTANTS.SCALEPATTERN => Generate notesInScale => Generate Random Note => 
+Check if Note is Accidental => Display Random Note => Display Accidental??
+
+
+
+
+*************************FILES***************************************
+
+Constants Files
+Constants: Scale patterns, indexes for accidentals,
+
+React Components:
+
+Fretboard-trainer-page Component
+
+    PageNavigationSidebar Component
+
+    Staff Component    
+        Clef Component
+        Note Component
+        Accidental Component
+
+    
+
+
+JS Files
+
+
