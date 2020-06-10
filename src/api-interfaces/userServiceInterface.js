@@ -9,29 +9,50 @@ import AuthenticationService from '../authentication/AuthenticationService.js';
  * This class is the middle man between front end User calls and userService api calls to backend
  */
 
-class UserServiceInterface extends Component{
+class UserServiceInterface{
 
-    constructor(props){
-        super(props);
-        this.state = {
-            users : [],
-            user : []
-        }
-    }
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         users : [],
+    //         user : []
+    //     }
+    //     this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this);
+    // }
 
-    getUsers(){
-        UserService.getUsers()
+
+    async getUsersAsync(){
+        let user;
+        
+        await UserService.getUsers()
         .then(
             response => {
-                // return response.data
-                // console.log(response.data)
-                let user = this.handleSuccessfulResponse(response)
-                console.log("user" + user)
-                return user;
+                console.log('response.data :>> ', response.data);
+                user = response.data;
+                console.log('user :>> ', user);
+            }
+        )
+        
+        return user;
+}
+
+     getUsers(){
+       UserService.getUsers()
+        .then(
+            response => {
+                console.log('response.data :>> ', response.data);
+                //this.handleSuccessfulResponse(response)
+                
+                if(response.data === undefined){
+                    
+                }
+
+                return response.data;
             }
             
             )
-            .catch(error => this.handleErrorResponse(error));
+            .catch(error => {
+                return error});
     }
 
     getUser(){
@@ -40,7 +61,8 @@ class UserServiceInterface extends Component{
          UserService.getUser(user)
          .then(
             response => {
-                return response
+                console.log('response.data :>> ', response.data);
+                return response.data
             }
             
             //this.handleSuccessfulResponse(response)
@@ -57,8 +79,8 @@ class UserServiceInterface extends Component{
         )
     }
     handleSuccessfulResponse(response){
-
-        this.setState({user : response.data})
+        
+        this.state({user : "Test"})
     }
     handleErrorResponse(error){
         let errorMessage = '';
