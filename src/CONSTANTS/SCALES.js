@@ -12,3 +12,5 @@
  export const MINOR_SCALE = (0,2,1,2,2,1,2,2);
 
  export const KEY_NOTES = ("C","D","E");
+
+ 

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 
 
- class DropDownComponent extends Component {
+class DropDownComponent extends Component {
 
     // constructor(props){
     //     super(props);
@@ -23,13 +23,13 @@ import React, { Component } from 'react';
 
         );
         
-        this.render()
+        
             return(
                 <select name={this.PASSED_OPTION}>
                     {OPTIONS}
                 </select>
             )
-        
+            
     }
 }
 
