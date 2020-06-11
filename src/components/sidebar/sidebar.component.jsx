@@ -7,7 +7,7 @@ const Sidebar = () => {
     return(
 
         <div>
-            <h1 align="center">Sidebar</h1>
+            <h2 align="center">Sidebar</h2>
             <h3 align="center">Staff Section</h3>
             <SidebarStaffController/>
         </div>
