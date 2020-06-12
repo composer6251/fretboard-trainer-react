@@ -38,7 +38,9 @@ class SidebarStaffController extends Component  {
         const SCALES = ShowOptionsDropDown.showOptions(SCALES_OPTIONS);
         
         return(
-            <select name="scale" onChange={this.handleChange}>{SCALES}</select>
+            <select name="scale" 
+            // onChange={this.handleChange}
+            >{SCALES}</select>
         )
     }
 
