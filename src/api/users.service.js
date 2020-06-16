@@ -3,67 +3,40 @@ import axios from 'axios'
 class UsersService{
 
     getUser(username){
-        let password = "test";
+        // let password = "test";
 
-        let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password);
+        // let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password);
         
         return axios.get(`http://localhost:8080/users/${username}/userinfo`
-        ,
-        {
-            headers : {
-                'Authorization' : basicAuthHeader
-            }
-        }
+        // ,
+        // {
+        //     headers : {
+        //         'Authorization' : basicAuthHeader
+        //     }
+        // }
         );
     }
     deleteUser(username, id){
 
-        let password = "test";
-
-        let basicAuthHeader = "Basic " + window.btoa(username + ":" + password);
-
-        return axios.delete(`http://localhost:8080/users/${username}/userinfo/${id}`
-        ,
-        {
-            headers : {
-                'Authorization' : basicAuthHeader
-            }
-        }
-        );
+        return axios.delete(`http://localhost:8080/users/${username}/userinfo/${id}`);
     }
     addUser(user){
 
-        let username = "David";
-        let password = "test";
-
-        let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password);
-
-        return axios.get(`http://localhost:8080/users/addUser`, user
-        ,
-        {
-           headers : {
-              'Authorization' : basicAuthHeader
-           }
-        }
-        );
-
-
-       // return axios.post(`http://localhost:8080/users/addUser`, user)
+        return axios.get(`http://localhost:8080/users/addUser`, user);
     }
 
     getUsers(){
 
-        let username = "David";
+        let username = "David"
         let password = "test";
 
         let basicAuthHeader = 'Basic ' + window.btoa(username + ":" + password);
 
-        return axios.get(`http://localhost:8080/users`
-        ,
+        return axios.get(`http://localhost:8080/users`,
         {
-           headers : {
-              'Authorization' : basicAuthHeader
-           }
+            headers : {
+                'Authorization' : basicAuthHeader
+            }
         }
         );
         

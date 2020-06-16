@@ -31,17 +31,23 @@ export default class LoginComponent extends Component{
         console.log(event.target.name + "=" + event.target.value);
         this.setState({[event.target.name] : event.target.value});
     }
+    
     //validate user info onClick
     loginOnclick(){
-        if(this.state.username === "David" && this.state.password === "test"){
-            
-            AuthenticationService.storeAuthenticationSessionStorage(this.state.username);
-            this.props.history.push(`/homepage`); //removed /${this.state.username}
-        }
-        else{
-            this.setState({loginFailed : true});
-            this.setState({loginSuccessful : false});
-        } 
+
+        AuthenticationService.executeBasicAuthenticationService(this.state.username, this.state.password)
+            .then(
+                () => {
+                    AuthenticationService.storeAuthenticationSessionStorage(this.state.username, this.state.password);
+                    this.props.history.push(`/homepage`); //removed /${this.state.username}
+                }
+            )
+            .catch(
+                () => {
+                    this.setState({loginFailed : true});
+                    this.setState({loginSuccessful : false});
+                }
+            )
     }
     guestOnclick(){
         AuthenticationService.storeAuthenticationSessionStorage(GUEST_USERNAME);
