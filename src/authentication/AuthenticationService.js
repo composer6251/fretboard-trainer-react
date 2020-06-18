@@ -53,9 +53,7 @@ class AuthenticationService {
                 if(this.isUserLoggedIn()){
                     config.headers.authorization = basicAuthHeader;
                 }
-                console.log('config :>> ', config);
                 return config;
-                
             }
         )
     }
