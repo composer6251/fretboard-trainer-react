@@ -5,7 +5,7 @@ import { AUTHENTICATED } from '../globals/global-const/constants';
 class AuthenticationService {
 
     executeBasicAuthenticationService(username, password){
-        return axios.get(`http://localhost:8080/basicauth`, 
+        return axios.get(`http://localhost:8080/authenticate`, 
             {headers: {authorization: this.createBasicAuthHeader(username, password)}})
     }
 
