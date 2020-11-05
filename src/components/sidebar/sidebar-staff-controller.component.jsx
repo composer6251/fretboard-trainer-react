@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 
 import ShowOptionsDropDown from '../sidebar/showOptionsDropDown.js';
+import generateDisplayRandomNote from '../../noteLogic/generateDisplayRandomNote';
 
 class SidebarStaffController extends Component  {
 
@@ -53,6 +54,11 @@ class SidebarStaffController extends Component  {
         )
     }
 
+    //TESTING
+    randomNoteClick(){
+        generateDisplayRandomNote.displayRandomNote();
+    }
+
     render(){
         return(
             <div>
@@ -63,7 +69,11 @@ class SidebarStaffController extends Component  {
                 <label>Select number of octaves</label><br/>
                     <this.showOptionsOctaves/><br/><br/>
                 <button>Begin!</button>
+                <br/>
+                
+                <button onClick={this.randomNoteClick}>Random Note</button>
             </div>
+
         )
     }
 }

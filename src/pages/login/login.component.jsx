@@ -35,6 +35,20 @@ export default class LoginComponent extends Component{
     //validate user info onClick
     loginOnclick(){
 
+        // AuthenticationService.executeJwtAuthenticationService(this.state.username, this.state.password)
+        // .then(
+        //     (response) => {
+        //         AuthenticationService.registerSuccessfulLoginForJwt(this.state.username, response.data.token);
+        //         this.props.history.push(`/homepage`); //removed /${this.state.username}
+        //     }
+        // )
+        // .catch(
+        //     () => {
+        //         this.setState({loginFailed : true});
+        //         this.setState({loginSuccessful : false});
+        //     }
+        // )
+
         AuthenticationService.executeBasicAuthenticationService(this.state.username, this.state.password)
             .then(
                 () => {
