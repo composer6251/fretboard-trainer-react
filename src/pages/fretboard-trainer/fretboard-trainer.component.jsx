@@ -29,11 +29,11 @@ const FretboardPage = () => {
             <div align="right" className="staff-component-container">
                 <StaffComponent />
             </div>
-            {/* <div align="left">
+            <div align="right">
                 <FretboardImageComponent/>
-            </div> */}
+            </div>
         </div>
     )
-};
+}; 
 
 export default FretboardPage;

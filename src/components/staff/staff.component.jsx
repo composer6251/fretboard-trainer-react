@@ -15,9 +15,7 @@ render(){
         <div className="staff">          
 
             <TrebleClefComponent/>
-            {/* <div>
-                <TestImageComponent/>
-                </div> */}
+            <NoteContainer/>
             <div className="staff">
                 
                 {/* Higher Ledger Lines */}

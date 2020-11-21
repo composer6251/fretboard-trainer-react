@@ -2,9 +2,9 @@ import React from 'react';
 
 import WholeNote from '../../images/whole-note.png';
 
-const NoteImage = (props) => {
+const NoteImage = () => {
     return(
-        <div>
+        <div align="center" className="note-image">
             <img src={WholeNote} alt="note"/>          
         </div>   
     )
