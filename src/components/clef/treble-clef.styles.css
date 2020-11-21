@@ -1,6 +1,11 @@
 .treble-clef{
-    position: absolute;
     top: 193px;
-    left: 380px;
-    border: 1px solid black;
+    left: 204px;
 }
+
+.treble-clef-container{
+    position: absolute;
+    top: 31px;
+    left: 115px;
+}
+

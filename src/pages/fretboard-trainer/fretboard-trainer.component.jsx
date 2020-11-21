@@ -11,6 +11,7 @@ import TitleOfPage from '../../components/title-of-page/title-of-page.component'
 import StaffComponent from '../../components/staff/staff.component';
 import HeaderComponent from '../../components/header/header.component';
 import Sidebar from '../../components/sidebar/sidebar.component';
+import TestImageComponent from '../../components/test/test-image.component';
 
 
 const FretboardPage = () => {
@@ -25,12 +26,12 @@ const FretboardPage = () => {
             <div className='title-page'>
                 <TitleOfPage title='Fretboard Trainer'/>
             </div>
-            <div align="right" >
+            <div align="right" className="staff-component-container">
                 <StaffComponent />
             </div>
-            <div align="right">
+            {/* <div align="left">
                 <FretboardImageComponent/>
-            </div>
+            </div> */}
         </div>
     )
 };
