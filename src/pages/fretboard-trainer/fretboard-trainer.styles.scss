@@ -2,8 +2,12 @@
     height: 100%;
     width: 100%;
 }
-.staff-div{
+.staff-component-container{
     right: 20px;
     width: 80%;
     justify-self: right;
 }
+#fixed-page{
+    position: relative;
+}
+

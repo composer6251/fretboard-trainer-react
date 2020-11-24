@@ -6,7 +6,7 @@ import TrebleClef from '../../images/treble-clef.png';
 
 const TrebleClefComponent = () => {
     return(
-        <div>
+        <div className="treble-clef-container">
             <img src={TrebleClef} alt="Treble-Clef" className="treble-clef"/>
         </div>
     )
