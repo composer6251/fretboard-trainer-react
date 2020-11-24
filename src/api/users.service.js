@@ -20,11 +20,14 @@ class UsersService{
 
         return axios.delete(`http://localhost:8080/users/${username}/userinfo/${id}`);
     }
-    addUser(user){
-
-        return axios.get(`http://localhost:8080/users/addUser`, user);
+    addUser(email, password, username){
+        console.log('email, password, username :>> ', email, password, username);
+        return axios.post(`http://localhost:8080/users/registerNewUser/${email}/${password}/${username}`);
     }
-
+    validateUserLogin(username, password){
+        console.log('validatingUserLoginAPI');
+        return axios.get(`http://localhost:8080/users/validate-user/${username}/${password}`);
+    }
     getUsers(){
 
         let username = "David"

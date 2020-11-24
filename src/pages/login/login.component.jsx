@@ -8,92 +8,65 @@ import MessagingService from '../../api/messaging.service.js';
 
 import { GUEST_USERNAME } from '../../globals/global-const/constants';
 import NewUserFormComponent from '../../components/forms/new-user-form.component';
+import usersService from '../../api/users.service';
 
 export default class LoginComponent extends Component{
     constructor(props){
         super(props);
         this.state = {
-            username: "David",
+            username: "dfennell28@hotmail.com",
             password: "test",
             loginFailed: false,
             loginSuccessful: false,
-            message: ''
+            message: '',
+            responseJson: ''
         }
         this.handleChange = this.handleChange.bind(this);
         this.loginOnclick = this.loginOnclick.bind(this);
         this.guestOnclick = this.guestOnclick.bind(this);
-        this.messagingServiceOnClick = this.messagingServiceOnClick.bind(this);
-        this.messagingServiceBeanOnClick = this.messagingServiceBeanOnClick.bind(this);
+        // this.messagingServiceOnClick = this.messagingServiceOnClick.bind(this);
+        // this.messagingServiceBeanOnClick = this.messagingServiceBeanOnClick.bind(this);
     }
-    
+    /************TODOS*********
+     * Create error message display service
+     * To handle response entity with error message
+     */
     //handle login un/pw input changes
     handleChange(event){
         console.log(event.target.name + "=" + event.target.value);
         this.setState({[event.target.name] : event.target.value});
     }
-    
+
     //validate user info onClick
     loginOnclick(){
-
-        // AuthenticationService.executeJwtAuthenticationService(this.state.username, this.state.password)
-        // .then(
-        //     (response) => {
-        //         AuthenticationService.registerSuccessfulLoginForJwt(this.state.username, response.data.token);
-        //         this.props.history.push(`/homepage`); //removed /${this.state.username}
-        //     }
-        // )
-        // .catch(
-        //     () => {
-        //         this.setState({loginFailed : true});
-        //         this.setState({loginSuccessful : false});
-        //     }
-        // )
-
-        AuthenticationService.executeBasicAuthenticationService(this.state.username, this.state.password)
+        usersService.validateUserLogin(this.state.username, this.state.password)
             .then(
-                () => {
-                    AuthenticationService.storeAuthenticationSessionStorage(this.state.username, this.state.password);
-                    this.props.history.push(`/homepage`); //removed /${this.state.username}
+                (response) => {
+                    console.log('validatingUserLogin successful. User found');
+                    console.log('response :>> ', response);
+                    this.handleSuccessfulResponse(response);
                 }
             )
             .catch(
                 () => {
+                    console.log('validatingUserLogin failed. User NOT found');
                     this.setState({loginFailed : true});
                     this.setState({loginSuccessful : false});
                 }
             )
+    }
+    handleSuccessfulResponse(response){
+        this.setState({loginFailed : false});
+        this.setState({loginSuccessful : true});
+        AuthenticationService.storeAuthenticationSessionStorage(response.data.username);
+        this.props.history.push(`/homepage`); ///${response.data.username}
     }
     guestOnclick(){
         AuthenticationService.storeAuthenticationSessionStorage(GUEST_USERNAME);
         this.props.history.push(`/homepage`);
     }
     
-    messagingServiceOnClick(){
-        MessagingService.executedMessagingService()
-        .then(response => this.handleSuccessfulMessagingService(response))
-        .catch( error => this.handleErrorMessagingService(error));
-    }
-    messagingServiceBeanOnClick(){
-          MessagingService.executedMessagingServiceBean()
-         .then(response => this.handleSuccessfulMessagingService(response));
-    }
-    handleSuccessfulMessagingService(response){
-        this.setState({message: response.data.message})
-    }
-
-    handleErrorMessagingService(error){
-        console.log(error);
-        let errorMessage = '';
-
-        if(error.message){
-            errorMessage += error.message;
-        }
-        if(error.response && error.response.data){
-            errorMessage += error.response.data.message;
-        }
-        this.setState({message: errorMessage})
-    }
-    
+   
     render(){
         return(
             <div>
@@ -112,11 +85,11 @@ export default class LoginComponent extends Component{
                     <br/>
                     <br/>
                     <br/>
-                    <h2>Continue as Guest without signing in</h2>
+                    <h2>Continue as Guest Without Signing In</h2>
                 </div>
-                <button className="login-button btn" onClick={this.guestOnclick}>Guest</button>
-                <button className="login-button btn" onClick={this.messagingServiceOnClick}>Messaging Service</button>
-                <button className="login-button btn" onClick={this.messagingServiceBeanOnClick}>Messaging Service Bean</button>
+                <button className="login-button btn" onClick={this.guestOnclick}>Continue As Guest</button>
+                {/* <button className="login-button btn" onClick={this.messagingServiceOnClick}>Messaging Service</button>
+                <button className="login-button btn" onClick={this.messagingServiceBeanOnClick}>Messaging Service Bean</button> */}
 
                 <div>{this.state.message}</div>
             </div>
@@ -124,3 +97,62 @@ export default class LoginComponent extends Component{
         )
     }
 }
+ // messagingServiceOnClick(){
+    //     MessagingService.executedMessagingService()
+    //     .then(response => this.handleSuccessfulMessagingService(response))
+    //     .catch( error => this.handleErrorMessagingService(error));
+    // }
+    // messagingServiceBeanOnClick(){
+    //       MessagingService.executedMessagingServiceBean()
+    //      .then(response => this.handleSuccessfulMessagingService(response));
+    // }
+    // handleSuccessfulMessagingService(response){
+    //     this.setState({message: response.data.message})
+    // }
+
+    // handleErrorMessagingService(error){
+    //     console.log(error);
+    //     let errorMessage = '';
+
+    //     if(error.message){
+    //         errorMessage += error.message;
+    //     }
+    //     if(error.response && error.response.data){
+    //         errorMessage += error.response.data.message;
+    //     }
+    //     this.setState({message: errorMessage})
+    // }
+    
+
+
+        // AuthenticationService.executeJwtAuthenticationService(this.state.username, this.state.password)
+        // .then(
+        //     (response) => {
+        //         AuthenticationService.registerSuccessfulLoginForJwt(this.state.username, response.data.token);
+        //         this.props.history.push(`/homepage`); //removed /${this.state.username}
+        //     }
+        // )
+        // .catch(
+        //     () => {
+        //         this.setState({loginFailed : true});
+        //         this.setState({loginSuccessful : false});
+        //     }
+        // )
+
+                
+
+        // AuthenticationService.executeBasicAuthenticationService(this.state.username, this.state.password)
+        //     .then(
+        //         (response) => {
+        //             AuthenticationService.storeAuthenticationSessionStorage(this.state.username, this.state.password);
+        //             usersService.validateUserLogin(this.state.username, this.state.password);
+        //             this.handleResponse(response);
+        //             this.props.history.push(`/homepage`); //removed /${this.state.username}
+        //         }
+        //     )
+        //     .catch(
+        //         () => {
+        //             this.setState({loginFailed : true});
+        //             this.setState({loginSuccessful : false});
+        //         }
+        //     )

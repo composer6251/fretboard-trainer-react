@@ -24,7 +24,15 @@ class AuthenticationService {
         return 'Basic ' + window.btoa(username + ":" + password);
     }
     
+    lookupUser(userId){
+        console.log('LookupUser :>> ');
+        return axios.get(`http://localhost:8080/users/authenticate/${userId}`);
+    }
 
+    createUser(userId){
+        console.log('LookupUser :>> ');
+        return axios.get(`http://localhost:8080/users/authenticate/${userId}`);
+    }
     storeAuthenticationSessionStorage(username, password){
         sessionStorage.setItem(AUTHENTICATED, username);
         this.setupAxiosInterceptors(this.createBasicAuthToken(username, password));
@@ -57,10 +65,9 @@ class AuthenticationService {
         let loggedIn = sessionStorage.getItem("Authenticated");
 
         if(loggedIn === null) {
-            return false}
-        else{ 
-            return true 
+            return false
         }
+        return true 
     }
 
     setupAxiosInterceptors(token){

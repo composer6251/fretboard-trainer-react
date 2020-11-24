@@ -3,9 +3,12 @@
  */
 
 
-    export const E3 = ["906px", "498px"];
+    export const E3 = "E3";
     //MIDDLE C
     export const C4 = "C4";
+    export const D4 = "D4";
     export const C2 = [1, 3];
+
+    export const arrayOfNotes = [C4, D4];
 
 

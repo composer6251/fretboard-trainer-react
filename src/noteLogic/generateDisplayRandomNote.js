@@ -1,7 +1,8 @@
 import React from 'react';
 
 import NoteContainer from '../components/note/note.container.component';
-import {C4} from '../CONSTANTS/noteConstants'
+import Note from '../components/note/note.image.component';
+import {C4, D4} from '../CONSTANTS/noteConstants'
 
 class generateDisplayRandomNote{
     // method to set note position
@@ -10,14 +11,15 @@ class generateDisplayRandomNote{
         console.log('noteId :>> ', noteId);
         return(
             <div>
-                <NoteContainer noteId={noteId}/>
+                <Note noteId={noteId}/>
             </div>
             
         )
     }
     //generate random note
     generateRandomNote(){
-        return C4;
+       //Math.random()
+        return D4;
     }
 }
 

@@ -15,7 +15,7 @@ class NewUserFormComponent extends Component{
     }
     onSubmit(values){
         console.log(values)
-        UsersService.addUser(values);
+        UsersService.addUser(values.email, values.password);
     }
     onSubmitValidation(values){
         const errors = {};
