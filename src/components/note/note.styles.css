@@ -1,14 +1,17 @@
 
 .note-image{
-    position: absolute;
-    left: 906px;
-    top: 498px;
-    border: black;
+    position: relative;
 }
 
 .note-container{
     position: absolute;
-    left: 906px;
+    left: 701px;
+    top: 9px;
+}
+
+#C4{
+    position: absolute;
+    left: 700px;
     top: 498px;
     border: black;
 }

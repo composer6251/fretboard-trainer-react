@@ -8,8 +8,8 @@ const NoteImage = (noteId) => {
     // Use state?
     console.log('props.noteId :>> ', noteId);
     return(
-        <div>
-            <img src={WholeNote} alt="note" id={noteId} />          
+        <div align="center" className="note-image">
+            <img src={WholeNote} alt="note" />          
         </div>   
     )
 };

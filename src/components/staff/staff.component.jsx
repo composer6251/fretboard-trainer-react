@@ -15,9 +15,9 @@ render(){
         <div className="staff">          
 
             <TrebleClefComponent />
-            <Note />
+            <NoteContainer/>
             
-            <div>
+            <div className="staff">
                 {/* Higher Ledger Lines */}
                 <hr className='line ledger-line top-ledger-line'/>
                 <hr className='line ledger-line'/>
