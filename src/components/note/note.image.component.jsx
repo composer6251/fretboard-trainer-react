@@ -9,7 +9,7 @@ const NoteImage = (noteId) => {
     console.log('props.noteId :>> ', noteId);
     return(
         <div>
-            <img src={WholeNote} alt="note" id={noteId} />          
+            <img src={WholeNote} alt="note" id="C4" />          
         </div>   
     )
 };

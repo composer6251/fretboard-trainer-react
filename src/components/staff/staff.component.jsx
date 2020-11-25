@@ -24,7 +24,6 @@ render(){
                 <hr className='line ledger-line'/>
 
                 {/* staff lines */}
-                
                 <hr className='line staff-line top-staff-line'/>
                 <hr className='line staff-line'/>
                 <hr className='line staff-line'/>
