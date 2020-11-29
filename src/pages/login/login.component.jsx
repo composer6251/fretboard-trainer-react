@@ -4,7 +4,6 @@ import './login.styles.css';
 import '../../globals/global-styles/bootstrap.css';
 
 import AuthenticationService from '../../authentication/AuthenticationService.js';
-import MessagingService from '../../api/messaging.service.js';
 
 import { GUEST_USERNAME } from '../../globals/global-const/constants';
 import NewUserFormComponent from '../../components/forms/new-user-form.component';
@@ -18,8 +17,7 @@ export default class LoginComponent extends Component{
             password: "test",
             loginFailed: false,
             loginSuccessful: false,
-            message: '',
-            responseJson: ''
+            message: ''
         }
         this.handleChange = this.handleChange.bind(this);
         this.loginOnclick = this.loginOnclick.bind(this);

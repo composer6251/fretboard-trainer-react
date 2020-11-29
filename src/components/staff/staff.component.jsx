@@ -5,17 +5,33 @@ import './staff.styles.scss';
 import TrebleClefComponent from '../clef/treble-clef.component';
 import { Component } from 'react';
 import NoteContainer from '../note/note.container.component';
-import Note from '../note/note.image.component';
+import NoteNameConstants from '../note/noteNameConstants.js';
+
+// add random button to this?????
+//Pass props to NoteContainer
+//Change NoteContainer Style with props
 
 
 class StaffComponent extends Component{
+    constructor(){
+        super();
+        this.state = {
+            noteStyle : NoteNameConstants.C4,
+            trainingStarted : false
+        }
+        this.displayNote = this.displayNote.bind(this);
+    }
 
+    displayNote(){
+        this.setState({trainingStarted : true})
+    }
 render(){
         return(
         <div className="staff">          
 
             <TrebleClefComponent />
-            <NoteContainer/>
+
+            {this.state.trainingStarted && <div><NoteContainer /></div>}
             
             <div className="staff">
                 {/* Higher Ledger Lines */}
@@ -24,7 +40,6 @@ render(){
                 <hr className='line ledger-line'/>
 
                 {/* staff lines */}
-                
                 <hr className='line staff-line top-staff-line'/>
                 <hr className='line staff-line'/>
                 <hr className='line staff-line'/>

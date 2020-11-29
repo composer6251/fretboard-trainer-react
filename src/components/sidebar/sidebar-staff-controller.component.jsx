@@ -3,21 +3,18 @@ import { Component } from 'react';
 
 import ShowOptionsDropDown from '../sidebar/showOptionsDropDown.js';
 import generateDisplayRandomNote from '../../noteLogic/generateDisplayRandomNote';
+import keyGeneratorController from '../scales/util/scaleGenerator.js';
 
 class SidebarStaffController extends Component  {
-
     constructor(props){
         super(props);
-
-        this.handleChange = this.handleChange.bind(this);
-
         this.state = {
-            
-            key : '',
-            scale : '',
-            octaves : null
-
+            key: 'C',
+            scale: 'Major',
+            octaves: 1
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.randomNoteClick = this.randomNoteClick.bind(this);
     }
 
     handleChange(event){
@@ -30,7 +27,10 @@ class SidebarStaffController extends Component  {
         const KEYS = ShowOptionsDropDown.showOptions(KEY_OPTIONS);
 
         return(
-            <select name="key">{KEYS}</select>
+            <select name="key" 
+            onChange={ () => this.handleChange}
+            >{KEYS}</select>
+            
         )
     }
 
@@ -40,7 +40,7 @@ class SidebarStaffController extends Component  {
         
         return(
             <select name="scale" 
-            // onChange={this.handleChange}
+            onChange={ () => this.handleChange}
             >{SCALES}</select>
         )
     }
@@ -50,13 +50,16 @@ class SidebarStaffController extends Component  {
         const OCTAVES = ShowOptionsDropDown.showOptions(OCTAVES_OPTIONS);
 
         return(
-            <select name="octave">{OCTAVES}</select>
+            <select name="octave" 
+            onChange={ () => this.handleChange}
+            >{OCTAVES}</select>
         )
     }
 
     //TESTING
     randomNoteClick(){
-        generateDisplayRandomNote.displayRandomNote();
+        //Just generate and return random note
+        keyGeneratorController(this.state.key, this.state.scale, this.state.octaves);
     }
 
     render(){
@@ -69,9 +72,8 @@ class SidebarStaffController extends Component  {
                 <label>Select number of octaves</label><br/>
                     <this.showOptionsOctaves/><br/><br/>
                 <button>Begin!</button>
-                <br/>
-                
                 <button onClick={this.randomNoteClick}>Random Note</button>
+                <br/>
             </div>
 
         )
