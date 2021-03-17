@@ -1,4 +1,5 @@
 
+1. Add response handling for user request. Add "Welcome back <response.name> your current level is <response.currentLevel> 
 
 3. Pass current page to HeaderComponent in order to not display that page in the Header. 
 

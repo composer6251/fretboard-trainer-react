@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Component } from 'react';
 
 import ShowOptionsDropDown from '../sidebar/showOptionsDropDown.js';
@@ -11,7 +11,8 @@ class SidebarStaffController extends Component  {
         this.state = {
             key: 'C',
             scale: 'Major',
-            octaves: 1
+            octaves: 1,
+            scaleNotes : null
         }
         this.handleChange = this.handleChange.bind(this);
         this.randomNoteClick = this.randomNoteClick.bind(this);
@@ -27,7 +28,7 @@ class SidebarStaffController extends Component  {
         const KEYS = ShowOptionsDropDown.showOptions(KEY_OPTIONS);
 
         return(
-            <select name="key" 
+            <select name="key" useRef="keyLetter"
             onChange={ () => this.handleChange}
             >{KEYS}</select>
             
@@ -40,7 +41,7 @@ class SidebarStaffController extends Component  {
         
         return(
             <select name="scale" 
-            onChange={ () => this.handleChange}
+        //    onChange={ () => this.handleChange}
             >{SCALES}</select>
         )
     }
@@ -51,7 +52,7 @@ class SidebarStaffController extends Component  {
 
         return(
             <select name="octave" 
-            onChange={ () => this.handleChange}
+        //    onChange={ () => this.handleChange}
             >{OCTAVES}</select>
         )
     }
@@ -59,7 +60,11 @@ class SidebarStaffController extends Component  {
     //TESTING
     randomNoteClick(){
         //Just generate and return random note
-        keyGeneratorController(this.state.key, this.state.scale, this.state.octaves);
+      //  this.setState.key = useRef;
+        console.log('this.state.key :>> ', this.state.key);
+        this.setState.scaleNotes = keyGeneratorController(this.state.key, this.state.scale, this.state.octaves);
+        console.log('this.state.key :>> ', this.state.key);
+        console.log('this.state.scaleNotes :>> ', this.state.scaleNotes);
     }
 
     render(){

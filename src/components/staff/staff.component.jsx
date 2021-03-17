@@ -16,8 +16,8 @@ class StaffComponent extends Component{
     constructor(){
         super();
         this.state = {
-            noteStyle : NoteNameConstants.C4,
-            trainingStarted : false
+            // noteStyle : this.props.note,
+         //   trainingStarted : this.props.trainingStarted
         }
         this.displayNote = this.displayNote.bind(this);
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './fretboard-trainer.styles.scss';
 import '../../globals/global-styles/bootstrap.css';
@@ -13,34 +13,44 @@ import HeaderComponent from '../../components/header/header.component';
 import Sidebar from '../../components/sidebar/sidebar.component';
 import TestImageComponent from '../../components/test/test-image.component';
 import FretboardTrainerContext from '../../context/fretboard-trainer.context-provider';
+import noteNameConstants from '../../components/note/noteNameConstants';
 
 
-const FretboardPage = () => {
-    return(
-        <div id="fixed-page">
-            <FretboardTrainerContext.Provider>
-                <div align="left" className="sidebar">
-                    <Sidebar className="sidebar"/>
-                </div>
-            </FretboardTrainerContext.Provider>
-                <div>
-                    <HeaderComponent id='homepage-link'/>
-                </div>
-                <div className='title-page'>
-                    <TitleOfPage title='Fretboard Trainer'/>
-                </div>
-            <FretboardTrainerContext.Provider>
-                <div align="right" className="staff-component-container">
-                    <StaffComponent />
-                </div>
-            </FretboardTrainerContext.Provider>
-            <FretboardTrainerContext.Provider>
-                <div align="right">
-                    <FretboardImageComponent/>
-                </div>
-            </FretboardTrainerContext.Provider>
-        </div>
-    )
-}; 
+class FretboardPage extends Component {
+    constructor(){
+        super();
+        this.state = {
+            trainingStarted : false,
+            note : noteNameConstants.C4
+        }
+    }
+    render(){
+        return(
+            <div id="fixed-page">
+                <FretboardTrainerContext.Provider>
+                    <div align="left" className="sidebar">
+                        <Sidebar className="sidebar"/>
+                    </div>
+                </FretboardTrainerContext.Provider>
+                    <div>
+                        <HeaderComponent id='homepage-link'/>
+                    </div>
+                    <div className='title-page'>
+                        <TitleOfPage title='Fretboard Trainer'/>
+                    </div>
+                <FretboardTrainerContext.Provider>
+                    <div align="right" className="staff-component-container">
+                        <StaffComponent note={this.state.note}/>
+                    </div>
+                </FretboardTrainerContext.Provider>
+                <FretboardTrainerContext.Provider>
+                    <div align="right">
+                        <FretboardImageComponent/>
+                    </div>
+                </FretboardTrainerContext.Provider>
+            </div>
+        )
+    }
+} 
 
 export default FretboardPage;
