@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import './header.styles.scss';
 
@@ -14,7 +14,7 @@ class HeaderComponent extends Component {
 
             <div>     
                 <h2 id='homepage-link' className="btn">
-                    <Link onClick={AuthenticationService.removeAuthenticationSessionStorage} to="/">Sign Out</Link></h2> 
+                <Link onClick={AuthenticationService.removeAuthenticationSessionStorage} to="/">Sign Out</Link></h2> 
             </div>            
             <div>
                 <h2 id='homepage-link' className="btn">
@@ -40,4 +40,4 @@ class HeaderComponent extends Component {
         );
     }
 }
-export default withRouter(HeaderComponent);
+export default HeaderComponent;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import NoteContainer from '../components/note/note.container.component';
 import Note from '../components/note/note.image.component';
-import {C4, D4} from '../CONSTANTS/noteConstants'
+import {C4, D4} from '../constants/noteConstants'
 
 class generateDisplayRandomNote{
     // method to set note position

@@ -25,7 +25,7 @@ const HomepageLink = (props) => {
         <TitleOfPage title='Home Page'/>
         
         <div className="welcome-message">
-             Welcome back {props.match.params.name}
+             Welcome back
         </div>
         <div className='homepage'>
             <Directory />

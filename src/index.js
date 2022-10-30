@@ -1,12 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(
-    <BrowserRouter>
+// Creates root page by element with id="root". By default, the root id is attached to the index.html div inside the body element like so:
+{/* 
+<body>
+    <div id="root"></div>
+</body>  
+*/}
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <BrowserRouter>
         <App />
-    </BrowserRouter>,
-    document.getElementById('root'));
+        </BrowserRouter>
+    </React.StrictMode>
+);
 
 

@@ -13,7 +13,7 @@ class AuthenticatedRouter extends Component{
             return <Route {...this.props} />
         }
         else {
-            return <Redirect to="/login" />
+            // return <Navigate to="/login" />
         } 
     }
 }

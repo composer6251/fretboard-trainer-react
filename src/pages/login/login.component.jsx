@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 import './login.styles.css';
 import '../../globals/global-styles/bootstrap.css';
@@ -59,11 +60,11 @@ export default class LoginComponent extends Component{
         this.setState({loginFailed : false});
         this.setState({loginSuccessful : true});
         AuthenticationService.storeAuthenticationSessionStorage(response.data.username);
-        this.props.history.push(`/homepage`); ///${response.data.username}
+        <Navigate to="/homepage" />; ///${response.data.username}
     }
-    guestOnclick(){
-        AuthenticationService.storeAuthenticationSessionStorage(GUEST_USERNAME);
-        this.props.history.push(`/homepage`);
+    guestOnclick()  {
+        // AuthenticationService.storeAuthenticationSessionStorage(GUEST_USERNAME);
+        <Navigate to="/homepage" />;
     }
     
    
@@ -87,10 +88,12 @@ export default class LoginComponent extends Component{
                     <br/>
                     <h2>Continue as Guest Without Signing In</h2>
                 </div>
-                <button className="login-button btn" onClick={this.guestOnclick}>Continue As Guest</button>
+                <Link to="/homepage">
+                    <button className="login-button btn" onClick={this.guestOnclick}>Continue As Guest</button>
+                </Link>
+                <button onClick={this.guestOnclick}>Test navigate</button>
                 {/* <button className="login-button btn" onClick={this.messagingServiceOnClick}>Messaging Service</button>
                 <button className="login-button btn" onClick={this.messagingServiceBeanOnClick}>Messaging Service Bean</button> */}
-
                 <div>{this.state.message}</div>
             </div>
             
