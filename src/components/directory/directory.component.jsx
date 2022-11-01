@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import MenuItem from '../menu-item/menu-item.component';
 
@@ -41,14 +40,10 @@ class Directory extends React.Component {
                 {
                 
                 this.state.sections.map(({ id, ...sectionProps }) => (
-                    // <Link to={sectionProps.linkPath}>
                       <MenuItem key={id} {...sectionProps}/>
-                    // </Link>
-                    
                     ))
                 }
             </div>
-          
         )  
     } 
 }

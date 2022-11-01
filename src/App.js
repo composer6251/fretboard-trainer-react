@@ -22,6 +22,7 @@ function App(){
   return (
     <div className="App">
       <Routes>
+        <Route exact path='/' element={<LoginPage/>}/>
         <Route exact path='/login' element={<LoginPage/>}/>
         <Route exact path='/testpage' element={<TestClassForDBCalls/>}/>
         <Route exact path='/homepage' element={<Homepage/>}/>
