@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axiom": "^0.1.6",
-    "axios": "^1.1.3",
+    "axios": "^0.21.2",
     "formik": "^2.2.9",
     "node-sass": "^7.0.3",
     "npm": "^8.19.2",
