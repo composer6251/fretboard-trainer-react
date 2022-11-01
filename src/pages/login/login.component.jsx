@@ -86,7 +86,7 @@ export default class LoginComponent extends Component{
                     <br/>
                     <br/>
                     <br/>
-                    <h2>Continue as Guest Without Signing In</h2>
+                    {/* <h2>Continue as Guest Without Signing In</h2> */}
                 </div>
                 <Link to="/homepage">
                     <button className="login-button btn" onClick={this.guestOnclick}>Continue As Guest</button>
