@@ -20,9 +20,6 @@ const FretboardPage = () => {
             <div align="left" className="sidebar">
                 <Sidebar className="sidebar"/>
             </div>
-            <div>
-                <HeaderComponent id='homepage-link'/>
-            </div>
             <div className='title-page'>
                 <TitleOfPage title='Fretboard Trainer'/>
             </div>

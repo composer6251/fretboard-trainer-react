@@ -14,13 +14,15 @@ import LearnTheoryPage from './pages/learn-theory/learn-theory.component';
 import ErrorPage from './pages/errorpage/errorpage.component';
 import TestClassForDBCalls from './pages/testpage/testpage.component';
 import WrapperPageComponent from "./pages/wrapper-page/wrapper-page.component";
+import HeaderComponent from './components/header/header.component';
 
 
 //App determines starting page and routing
 function App(){
-
+// TODO: Make App Wrapper to handle responsive routing
   return (
     <div className="App">
+    <HeaderComponent/>
       <Routes>
         <Route exact path='/' element={<LoginPage/>}/>
         <Route exact path='/login' element={<LoginPage/>}/>

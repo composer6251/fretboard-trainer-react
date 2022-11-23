@@ -21,7 +21,6 @@ const HomepageLink = (props) => {
     return(
 
     <div>  
-        <HeaderComponent currentPage="home"/>
         <TitleOfPage title='Home Page'/>
         
         <div className="welcome-message">
